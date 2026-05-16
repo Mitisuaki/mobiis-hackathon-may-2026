@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root,
+[data-theme="dark"] {
+  /* Navy Blue Dark Theme */
+  --color-sidebar-bg: #111C2E;
+  --color-bg-main: #0A1220;
+  --color-text-primary: #F0F4F8;
+  --color-text-secondary: #8899A6;
+  --color-accent-green: #00ff66;
+  --color-accent-blue: #3B82F6;
+  --color-card-bg: #0F1C2E;
+  --color-border: #1E3450;
+  --color-danger: #ff4444;
+  --color-success: #00ff66;
+  --color-bg-overlay: rgba(10, 20, 36, 0.85);
+  --color-hover-bg: rgba(255, 255, 255, 0.06);
+  --color-active-bg: #132238;
+
+  --color-btn-primary-bg: #1E3A5F;
+  --color-btn-primary-text: #F0F4F8;
+  --color-btn-primary-border: #2A4D73;
+  --color-btn-primary-hover: #264A6E;
+
+  --font-family-sans: 'Inter', sans-serif;
+}
+
+[data-theme="light"] {
+  /* Fretefy-inspired Light Theme */
+  --color-sidebar-bg: #FFFFFF;
+  --color-bg-main: #F4F6F8;
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #64748B;
+  --color-accent-green: #10B981;
+  --color-accent-blue: #2563EB;
+  --color-card-bg: #FFFFFF;
+  --color-border: #E2E8F0;
+  --color-danger: #EF4444;
+  --color-success: #10B981;
+  --color-bg-overlay: rgba(160, 175, 195, 0.72);
+  --color-hover-bg: rgba(0, 0, 0, 0.04);
+  --color-active-bg: rgba(37, 99, 235, 0.05);
+
+  --color-btn-primary-bg: #2563EB;
+  --color-btn-primary-text: #FFFFFF;
+  --color-btn-primary-border: #2563EB;
+  --color-btn-primary-hover: #1D4ED8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-sans);
+  background-color: var(--color-bg-main);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+a {
+  color: var(--color-text-primary);
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-family-sans);
+  cursor: pointer;
+  border: none;
+  background: none;
+}

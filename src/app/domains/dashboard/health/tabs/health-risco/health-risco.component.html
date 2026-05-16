@@ -1,0 +1,55 @@
+<div class="tab-page">
+  <h2 class="tab-title">{{ 'HEALTH.RISCO_TITLE' | translate }}</h2>
+  <p class="tab-subtitle">{{ 'HEALTH.RISCO_SUBTITLE' | translate }}</p>
+
+  <div class="split-layout">
+    <!-- Left Column: Table -->
+    <div class="table-container">
+      <h3>{{ 'HEALTH.RISCO_LEFT_TITLE' | translate }}</h3>
+      
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th class="text-left">{{ 'HEALTH.RISCO_COL_CLIENTE' | translate }}</th>
+            <th class="text-left">{{ 'HEALTH.RISCO_COL_SAUDE' | translate }}</th>
+            <th class="text-right">{{ 'HEALTH.RISCO_COL_CRITICOS' | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of riskAccounts">
+            <td class="text-left fw-600">{{ row.client }}</td>
+            <td class="text-left">
+              <div class="status-badge" [ngClass]="row.statusClass">
+                <span class="status-dot"></span>
+                {{ 'HEALTH.' + row.statusKey | translate }}
+              </div>
+            </td>
+            <td class="text-right fw-600" [ngClass]="row.statusClass + '-text'">
+              {{ row.tickets }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Right Column: Insight Cards -->
+    <div class="insights-container">
+      <h3>{{ 'HEALTH.RISCO_RIGHT_TITLE' | translate }}</h3>
+      
+      <div class="insight-card red-border">
+        <h4>{{ 'HEALTH.RISCO_CARD1_TITLE' | translate }}</h4>
+        <p>{{ 'HEALTH.RISCO_CARD1_DESC' | translate }}</p>
+      </div>
+
+      <div class="insight-card yellow-border">
+        <h4>{{ 'HEALTH.RISCO_CARD2_TITLE' | translate }}</h4>
+        <p>{{ 'HEALTH.RISCO_CARD2_DESC' | translate }}</p>
+      </div>
+
+      <div class="insight-card green-border">
+        <h4>{{ 'HEALTH.RISCO_CARD3_TITLE' | translate }}</h4>
+        <p>{{ 'HEALTH.RISCO_CARD3_DESC' | translate }}</p>
+      </div>
+    </div>
+  </div>
+</div>

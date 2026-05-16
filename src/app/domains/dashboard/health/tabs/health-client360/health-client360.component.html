@@ -1,0 +1,35 @@
+<div class="tab-page">
+  <h2 class="tab-title">{{ 'HEALTH.CLIENT360_TITLE' | translate }}</h2>
+  <p class="tab-subtitle">{{ 'HEALTH.CLIENT360_SUBTITLE' | translate }}</p>
+
+  <div class="table-container">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th class="text-left">{{ 'HEALTH.CLIENT360_COL_CLIENTE' | translate }}</th>
+          <th class="text-center">{{ 'HEALTH.CLIENT360_COL_RISCO' | translate }}</th>
+          <th class="text-left">{{ 'HEALTH.CLIENT360_COL_PRODUTO' | translate }}</th>
+          <th class="text-left">{{ 'HEALTH.CLIENT360_COL_CAUSA' | translate }}</th>
+          <th class="text-left">{{ 'HEALTH.CLIENT360_COL_COMANDO' | translate }}</th>
+          <th class="text-right">{{ 'HEALTH.CLIENT360_COL_PRAZO' | translate }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of clients360">
+          <td class="text-left fw-700 col-cliente">{{ row.cliente }}</td>
+          <td class="text-center">
+            <span class="risk-badge" [ngClass]="row.riscoClass">
+              {{ row.risco | translate }}
+            </span>
+          </td>
+          <td class="text-left col-produto">{{ row.produto }}</td>
+          <td class="text-left col-causa">{{ row.causa }}</td>
+          <td class="text-left col-comando">{{ row.comando }}</td>
+          <td class="text-right fw-700" [ngClass]="row.prazoClass">
+            {{ row.prazo }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

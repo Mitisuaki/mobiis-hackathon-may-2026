@@ -1,0 +1,118 @@
+.tab-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.tab-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.tab-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 800px;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  min-height: 380px; /* Make them tall like the mockup */
+}
+
+.process-card {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  border-left-width: 4px;
+}
+
+.card-num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 4rem 0; /* Huge gap below title like mockup */
+  line-height: 1.3;
+}
+
+.card-desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Card Accent Colors */
+.card-cyan {
+  border-left-color: #22D3EE;
+}
+.card-cyan .card-num { color: #22D3EE; }
+
+.card-purple {
+  border-left-color: #A855F7;
+}
+.card-purple .card-num { color: #A855F7; }
+
+.card-orange {
+  border-left-color: #FBBF24;
+}
+.card-orange .card-num { color: #FBBF24; }
+
+.card-teal {
+  border-left-color: #2DD4BF;
+}
+.card-teal .card-num { color: #2DD4BF; }
+
+.card-green {
+  border-left-color: #4ADE80;
+}
+.card-green .card-num { color: #4ADE80; }
+
+/* Principle Banner */
+.principle-banner {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid #0284C7; /* Darker Cyan/Blue border */
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.principle-banner p {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+@media (max-width: 1200px) {
+  .cards-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .card-title {
+    margin-bottom: 2rem;
+  }
+}

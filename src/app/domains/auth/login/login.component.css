@@ -1,0 +1,179 @@
+.login-page-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--color-bg-main);
+  background-image: linear-gradient(var(--color-bg-overlay), var(--color-bg-overlay)), url('/bg-truck.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-color 0.3s ease, background-image 0.3s ease;
+  position: relative;
+}
+
+.theme-toggle-btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: var(--color-card-bg);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.05);
+  border-color: var(--color-text-secondary);
+}
+
+.login-card-glass {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  padding: 3.5rem 3rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.login-logo {
+  max-width: 160px;
+  height: auto;
+}
+
+.header-text {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.welcome-text {
+  color: var(--color-text-primary);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.subtitle-text {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+label {
+  color: var(--color-text-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.clean-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background-color: transparent;
+  color: var(--color-text-primary);
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.clean-input::placeholder {
+  color: var(--color-text-secondary);
+  opacity: 0.5;
+}
+
+.clean-input:focus {
+  outline: none;
+  border-color: var(--color-accent-blue);
+  box-shadow: 0 0 0 1px var(--color-accent-blue);
+}
+
+.clean-input:-webkit-autofill,
+.clean-input:-webkit-autofill:hover,
+.clean-input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px var(--color-card-bg) inset;
+  -webkit-text-fill-color: var(--color-text-primary);
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.password-toggle:hover {
+  color: var(--color-text-primary);
+}
+
+.error-message {
+  color: var(--color-danger);
+  background-color: rgba(239, 68, 68, 0.1);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.btn-login {
+  width: 100%;
+  padding: 0.875rem;
+  border-radius: 8px;
+  background-color: var(--color-btn-primary-bg);
+  color: var(--color-btn-primary-text);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  margin-top: 0.5rem;
+  border: 1px solid var(--color-btn-primary-border);
+}
+
+.btn-login:hover {
+  background-color: var(--color-btn-primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-login:active {
+  transform: translateY(0);
+}

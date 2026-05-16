@@ -1,0 +1,72 @@
+<div class="tab-page">
+  <h2 class="tab-title">{{ 'HEALTH.CHURN_TITLE' | translate }}</h2>
+  <p class="tab-subtitle">{{ 'HEALTH.CHURN_SUBTITLE' | translate }}</p>
+
+  <div class="split-layout">
+    <!-- Left Column: Levels and Thesis -->
+    <div class="left-col-container">
+      
+      <div class="levels-container">
+        <h3 class="mb-3">{{ 'HEALTH.CHURN_LEFT_TITLE' | translate }}</h3>
+        
+        <div class="level-card">
+          <span class="level-label">{{ 'HEALTH.CHURN_LEVEL_1' | translate }}</span>
+          <div class="level-value red-text">R$ 29.261</div>
+          <span class="level-sub">{{ 'HEALTH.CHURN_LEVEL_1_SUB' | translate }}</span>
+        </div>
+
+        <div class="level-card">
+          <span class="level-label">{{ 'HEALTH.CHURN_LEVEL_2' | translate }}</span>
+          <div class="level-value orange-text">R$ 8.063</div>
+          <span class="level-sub">{{ 'HEALTH.CHURN_LEVEL_2_SUB' | translate }}</span>
+        </div>
+
+        <div class="level-card">
+          <span class="level-label">{{ 'HEALTH.CHURN_LEVEL_3' | translate }}</span>
+          <div class="level-value blue-text">R$ 107.582</div>
+          <span class="level-sub">{{ 'HEALTH.CHURN_LEVEL_3_SUB' | translate }}</span>
+        </div>
+      </div>
+
+      <div class="thesis-card">
+        <h4>{{ 'HEALTH.CHURN_TESE_TITLE' | translate }}</h4>
+        <p>{{ 'HEALTH.CHURN_TESE_DESC' | translate }}</p>
+      </div>
+
+    </div>
+
+    <!-- Right Column: Bar Chart and Insight Cards -->
+    <div class="right-col-container">
+      <h3>{{ 'HEALTH.CHURN_RIGHT_TITLE' | translate }}</h3>
+      
+      <div class="h-bar-list">
+        <div class="h-bar-item" *ngFor="let item of churnAccounts; let i = index">
+          <span class="h-bar-label">{{ item.client }}</span>
+          <div class="h-bar-track">
+            <div class="h-bar-fill" [style.width.%]="item.value / 70000 * 100"></div>
+          </div>
+          <span class="h-bar-value" [class.highlight]="i === 0">
+            R$ {{ formatCurrency(item.value) }}
+          </span>
+        </div>
+      </div>
+
+      <div class="insights-grid">
+        <div class="insight-card blue-border">
+          <h4>{{ 'HEALTH.CHURN_CARD1_TITLE' | translate }}</h4>
+          <p>{{ 'HEALTH.CHURN_CARD1_DESC' | translate }}</p>
+        </div>
+
+        <div class="insight-card red-border">
+          <h4>{{ 'HEALTH.CHURN_CARD2_TITLE' | translate }}</h4>
+          <p>{{ 'HEALTH.CHURN_CARD2_DESC' | translate }}</p>
+        </div>
+
+        <div class="insight-card green-border">
+          <h4>{{ 'HEALTH.CHURN_CARD3_TITLE' | translate }}</h4>
+          <p>{{ 'HEALTH.CHURN_CARD3_DESC' | translate }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

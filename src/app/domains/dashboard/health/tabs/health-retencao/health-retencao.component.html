@@ -1,0 +1,67 @@
+<div class="tab-page">
+  <h2 class="tab-title">{{ 'HEALTH.RETENCAO_TITLE' | translate }}</h2>
+  <p class="tab-subtitle">{{ 'HEALTH.RETENCAO_SUBTITLE' | translate }}</p>
+
+  <div class="split-layout">
+    <!-- Left Column: Chart and Metrics -->
+    <div class="left-col-container">
+      
+      <div class="chart-section">
+        <h3>{{ 'HEALTH.RETENCAO_LEFT_TITLE' | translate }}</h3>
+        
+        <div class="h-bar-list">
+          <div class="h-bar-item" *ngFor="let item of causas">
+            <span class="h-bar-label">{{ 'HEALTH.' + item.key | translate }}</span>
+            <div class="h-bar-track">
+              <div class="h-bar-fill" [style.width.%]="item.value / 5 * 100"></div>
+            </div>
+            <span class="h-bar-value highlight">{{ item.value }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric-box">
+          <span class="metric-label">{{ 'HEALTH.RETENCAO_METRIC1_LABEL' | translate }}</span>
+          <div class="metric-value pink-text">R$ 25.221</div>
+        </div>
+        <div class="metric-box">
+          <span class="metric-label">{{ 'HEALTH.RETENCAO_METRIC2_LABEL' | translate }}</span>
+          <div class="metric-value orange-text">R$ 9.533</div>
+        </div>
+        <div class="metric-box">
+          <span class="metric-label">{{ 'HEALTH.RETENCAO_METRIC3_LABEL' | translate }}</span>
+          <div class="metric-value cyan-text">15</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right Column: Insight Cards -->
+    <div class="right-col-container">
+      <h3>{{ 'HEALTH.RETENCAO_RIGHT_TITLE' | translate }}</h3>
+      
+      <div class="insights-list">
+        <div class="insight-card pink-border">
+          <h4>{{ 'HEALTH.RETENCAO_CARD1_TITLE' | translate }}</h4>
+          <p>{{ 'HEALTH.RETENCAO_CARD1_DESC' | translate }}</p>
+        </div>
+
+        <div class="insight-card orange-border">
+          <h4>{{ 'HEALTH.RETENCAO_CARD2_TITLE' | translate }}</h4>
+          <p>{{ 'HEALTH.RETENCAO_CARD2_DESC' | translate }}</p>
+        </div>
+
+        <div class="insight-card cyan-border">
+          <h4>{{ 'HEALTH.RETENCAO_CARD3_TITLE' | translate }}</h4>
+          <p>{{ 'HEALTH.RETENCAO_CARD3_DESC' | translate }}</p>
+        </div>
+
+        <div class="insight-card green-border">
+          <h4>{{ 'HEALTH.RETENCAO_CARD4_TITLE' | translate }}</h4>
+          <p>{{ 'HEALTH.RETENCAO_CARD4_DESC' | translate }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

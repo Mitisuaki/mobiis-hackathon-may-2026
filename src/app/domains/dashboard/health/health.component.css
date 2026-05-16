@@ -1,0 +1,236 @@
+.health-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+/* Top Bar */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.breadcrumb {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.base-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #22D3EE;
+  text-transform: uppercase;
+}
+
+/* Grid Layout */
+.health-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Left Column */
+.left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.main-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  max-width: 95%;
+}
+
+/* Tab Buttons */
+.tab-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.tab-btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: transparent;
+  font-family: inherit;
+}
+
+.tab-btn.overview {
+  border: 1px solid var(--color-accent-blue);
+  color: var(--color-accent-blue);
+}
+.tab-btn.overview.active,
+.tab-btn.overview:hover {
+  background-color: var(--color-accent-blue);
+  color: #FFF;
+}
+
+.tab-btn.churn {
+  border: 1px solid #F97316;
+  color: #F97316;
+}
+.tab-btn.churn.active,
+.tab-btn.churn:hover {
+  background-color: #F97316;
+  color: #FFF;
+}
+
+.tab-btn.categorias {
+  border: 1px solid #1DF2A4;
+  color: #1DF2A4;
+}
+.tab-btn.categorias.active,
+.tab-btn.categorias:hover {
+  background-color: #1DF2A4;
+  color: #0A1220;
+}
+
+.tab-btn.ocorrencias {
+  border: 1px solid #A78BFA;
+  color: #A78BFA;
+}
+.tab-btn.ocorrencias.active,
+.tab-btn.ocorrencias:hover {
+  background-color: #A78BFA;
+  color: #0A1220;
+}
+
+.tab-btn.clientes {
+  border: 1px solid #22D3EE;
+  color: #22D3EE;
+}
+.tab-btn.clientes.active,
+.tab-btn.clientes:hover {
+  background-color: #22D3EE;
+  color: #0A1220;
+}
+
+.tab-btn.suporte {
+  border: 1px solid #22D3EE;
+  color: #22D3EE;
+}
+.tab-btn.suporte.active,
+.tab-btn.suporte:hover {
+  background-color: #22D3EE;
+  color: #0A1220;
+}
+
+.tab-btn.risco {
+  border: 1px solid #EF4444;
+  color: #EF4444;
+}
+.tab-btn.risco.active,
+.tab-btn.risco:hover {
+  background-color: #EF4444;
+  color: #FFF;
+}
+
+.tab-btn.retencao {
+  border: 1px solid #3B82F6;
+  color: #3B82F6;
+}
+.tab-btn.retencao.active,
+.tab-btn.retencao:hover {
+  background-color: #3B82F6;
+  color: #FFF;
+}
+
+.tab-btn.client360 {
+  border: 1px solid #14B8A6; /* Teal */
+  color: #14B8A6;
+}
+.tab-btn.client360.active,
+.tab-btn.client360:hover {
+  background-color: #14B8A6;
+  color: #FFF;
+}
+
+.tab-btn.cancelamentos {
+  border: 1px solid #E11D48; /* Rose/Red */
+  color: #E11D48;
+}
+.tab-btn.cancelamentos.active,
+.tab-btn.cancelamentos:hover {
+  background-color: #E11D48;
+  color: #FFF;
+}
+
+.tab-btn.modelo {
+  border: 1px solid #4ADE80; /* Green */
+  color: #4ADE80;
+}
+.tab-btn.modelo.active,
+.tab-btn.modelo:hover {
+  background-color: #4ADE80;
+  color: #FFF;
+}
+
+.tab-btn.roadmap {
+  border: 1px solid #6366F1; /* Indigo */
+  color: #6366F1;
+}
+.tab-btn.roadmap.active,
+.tab-btn.roadmap:hover {
+  background-color: #6366F1;
+  color: #FFF;
+}
+
+.tab-btn.resumo {
+  border: 1px solid #10B981; /* Green */
+  color: #10B981;
+}
+.tab-btn.resumo.active,
+.tab-btn.resumo:hover {
+  background-color: #10B981;
+  color: #FFF;
+}
+
+/* Right Column */
+.right-col {
+  min-height: 400px;
+}
+
+.tab-content {
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1024px) {
+  .health-grid {
+    grid-template-columns: 1fr;
+  }
+}

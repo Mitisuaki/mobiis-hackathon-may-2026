@@ -1,0 +1,47 @@
+<div class="tab-page">
+  <h2 class="tab-title">{{ 'HEALTH.CATEGORIAS_TITLE' | translate }}</h2>
+  <p class="tab-subtitle">{{ 'HEALTH.CATEGORIAS_SUBTITLE' | translate }}</p>
+
+  <div class="split-layout">
+    <!-- Left Column: Table -->
+    <div class="table-container">
+      <h3>Top categorias de chamados</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th class="text-left">{{ 'HEALTH.CAT_COL_CATEGORY' | translate }}</th>
+            <th class="text-right">{{ 'HEALTH.CAT_COL_TICKETS' | translate }}</th>
+            <th class="text-right">{{ 'HEALTH.CAT_COL_BASE' | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of tableData" [class.highlight]="row.highlight">
+            <td class="text-left">{{ 'HEALTH.CATEGORIES.' + row.key | translate }}</td>
+            <td class="text-right">{{ row.tickets }}</td>
+            <td class="text-right">{{ row.base | number:'1.1-1' }}%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Right Column: Insight Cards -->
+    <div class="insights-container">
+      <h3>{{ 'HEALTH.REASON_TITLE' | translate }}</h3>
+      
+      <div class="insight-card blue-border">
+        <h4>{{ 'HEALTH.REASON_CARD1_TITLE' | translate }}</h4>
+        <p>{{ 'HEALTH.REASON_CARD1_DESC' | translate }}</p>
+      </div>
+
+      <div class="insight-card yellow-border">
+        <h4>{{ 'HEALTH.REASON_CARD2_TITLE' | translate }}</h4>
+        <p>{{ 'HEALTH.REASON_CARD2_DESC' | translate }}</p>
+      </div>
+
+      <div class="insight-card green-border">
+        <h4>{{ 'HEALTH.REASON_CARD3_TITLE' | translate }}</h4>
+        <p>{{ 'HEALTH.REASON_CARD3_DESC' | translate }}</p>
+      </div>
+    </div>
+  </div>
+</div>

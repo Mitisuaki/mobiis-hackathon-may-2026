@@ -1,0 +1,41 @@
+<div class="tab-page">
+  <h2 class="tab-title">{{ 'HEALTH.CANCELAMENTOS_TITLE' | translate }}</h2>
+  <p class="tab-subtitle">{{ 'HEALTH.CANCELAMENTOS_SUBTITLE' | translate }}</p>
+
+  <div class="table-container">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th class="text-left">{{ 'HEALTH.CANCELAMENTOS_COL_CLIENTE' | translate }}</th>
+          <th class="text-left">{{ 'HEALTH.CANCELAMENTOS_COL_PRODUTO' | translate }}</th>
+          <th class="text-left">{{ 'HEALTH.CANCELAMENTOS_COL_RECEITA' | translate }}</th>
+          <th class="text-center">{{ 'HEALTH.CANCELAMENTOS_COL_EVENTO' | translate }}</th>
+          <th class="text-left">{{ 'HEALTH.CANCELAMENTOS_COL_MOTIVO' | translate }}</th>
+          <th class="text-left">{{ 'HEALTH.CANCELAMENTOS_COL_PREVENCAO' | translate }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of cancelamentos">
+          <td class="text-left fw-700 col-cliente">{{ row.cliente }}</td>
+          <td class="text-left col-produto">{{ row.produto }}</td>
+          <td class="text-left fw-700 col-receita">{{ row.receita }}</td>
+          <td class="text-center">
+            <span class="event-badge" [ngClass]="row.eventoClass">
+              {{ row.evento | translate }}
+            </span>
+          </td>
+          <td class="text-left col-motivo">{{ row.motivo }}</td>
+          <td class="text-left col-prevencao">{{ row.prevencao }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sintese-card">
+    <div class="sintese-border"></div>
+    <div class="sintese-content">
+      <h4>{{ 'HEALTH.CANCELAMENTOS_SINTESE_TITLE' | translate }}</h4>
+      <p>{{ 'HEALTH.CANCELAMENTOS_SINTESE_DESC' | translate }}</p>
+    </div>
+  </div>
+</div>

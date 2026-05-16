@@ -1,0 +1,60 @@
+<div class="tab-page">
+  <h2 class="tab-title">{{ 'HEALTH.SUPORTE_TITLE' | translate }}</h2>
+  <p class="tab-subtitle">{{ 'HEALTH.SUPORTE_SUBTITLE' | translate }}</p>
+
+  <div class="stats-row-5">
+    <div class="stat-box-sm">
+      <div class="stat-header">{{ 'HEALTH.SUPORTE_TICKETS_ANALYZED' | translate }}</div>
+      <div class="stat-value cyan">619</div>
+      <div class="stat-sub">{{ 'HEALTH.SUPORTE_TOTAL_OFFICIAL' | translate }}</div>
+    </div>
+    <div class="stat-box-sm">
+      <div class="stat-header">{{ 'HEALTH.SUPORTE_REV_AT_RISK' | translate }}</div>
+      <div class="stat-value purple">R$ 144.906</div>
+      <div class="stat-sub">{{ 'HEALTH.SUPORTE_CRITICAL_ACCOUNTS' | translate }}</div>
+    </div>
+    <div class="stat-box-sm">
+      <div class="stat-header">{{ 'HEALTH.SUPORTE_REV_CANCELED' | translate }}</div>
+      <div class="stat-value green">R$ 34.754</div>
+      <div class="stat-sub">{{ 'HEALTH.SUPORTE_CANCELED_REDUCED' | translate }}</div>
+    </div>
+    <div class="stat-box-sm">
+      <div class="stat-header">{{ 'HEALTH.SUPORTE_INCIDENTS' | translate }}</div>
+      <div class="stat-value cyan">269</div>
+      <div class="stat-sub">{{ 'HEALTH.SUPORTE_MOST_FREQUENT' | translate }}</div>
+    </div>
+    <div class="stat-box-sm">
+      <div class="stat-header">{{ 'HEALTH.SUPORTE_CRITICAL_CATEGORY' | translate }}</div>
+      <div class="stat-value yellow">49,3%</div>
+      <div class="stat-sub">{{ 'HEALTH.SUPORTE_LABELER' | translate }}</div>
+    </div>
+  </div>
+
+  <div class="bottom-grid">
+    <div class="chart-card-h">
+      <h3>{{ 'HEALTH.SUPORTE_DISTRIBUTION_TITLE' | translate }}</h3>
+      <div class="h-bar-list">
+        <div class="h-bar-item" *ngFor="let item of categories">
+          <span class="h-bar-label">{{ 'HEALTH.CATEGORIES.' + item.key | translate }}</span>
+          <div class="h-bar-track">
+            <div class="h-bar-fill" [style.width.%]="item.value / 305 * 100"></div>
+          </div>
+          <span class="h-bar-value">{{ item.value }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="signals-card">
+      <div class="signals-header">
+        <span>{{ 'HEALTH.SUPORTE_SIGNAL' | translate }}</span>
+        <span>{{ 'HEALTH.SUPORTE_REASON' | translate }}</span>
+        <span>{{ 'HEALTH.SUPORTE_DECISION' | translate }}</span>
+      </div>
+      <div class="signals-row" *ngFor="let s of signals">
+        <span class="signal-name">{{ 'HEALTH.SIGNALS.' + s.key + '.NAME' | translate }}</span>
+        <span class="signal-reason">{{ 'HEALTH.SIGNALS.' + s.key + '.REASON' | translate }}</span>
+        <span class="signal-decision">{{ 'HEALTH.SIGNALS.' + s.key + '.DECISION' | translate }}</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="tab-page">
+  <h2 class="tab-title">{{ 'HEALTH.OCORRENCIAS_TITLE' | translate }}</h2>
+  <p class="tab-subtitle">{{ 'HEALTH.OCORRENCIAS_SUBTITLE' | translate }}</p>
+
+  <div class="split-layout">
+    <!-- Left Column: Bar Chart List -->
+    <div class="list-container">
+      <h3>{{ 'HEALTH.OCORRENCIAS_LEFT_TITLE' | translate }}</h3>
+      
+      <div class="h-bar-list">
+        <div class="h-bar-item" *ngFor="let item of occurrences">
+          <span class="h-bar-label">{{ 'HEALTH.OCCURRENCES.' + item.key | translate }}</span>
+          <div class="h-bar-track">
+            <div class="h-bar-fill" [style.width.%]="item.value / 120 * 100"></div>
+          </div>
+          <span class="h-bar-value">{{ item.value }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Insight Cards -->
+    <div class="insights-container">
+      <h3>{{ 'HEALTH.OCORRENCIAS_RIGHT_TITLE' | translate }}</h3>
+      
+      <div class="insight-card red-border">
+        <h4>{{ 'HEALTH.OCORRENCIAS_CARD1_TITLE' | translate }}</h4>
+        <p>{{ 'HEALTH.OCORRENCIAS_CARD1_DESC' | translate }}</p>
+      </div>
+
+      <div class="insight-card light-blue-border">
+        <h4>{{ 'HEALTH.OCORRENCIAS_CARD2_TITLE' | translate }}</h4>
+        <p>{{ 'HEALTH.OCORRENCIAS_CARD2_DESC' | translate }}</p>
+      </div>
+
+      <div class="insight-card yellow-border">
+        <h4>{{ 'HEALTH.OCORRENCIAS_CARD3_TITLE' | translate }}</h4>
+        <p>{{ 'HEALTH.OCORRENCIAS_CARD3_DESC' | translate }}</p>
+      </div>
+    </div>
+  </div>
+</div>

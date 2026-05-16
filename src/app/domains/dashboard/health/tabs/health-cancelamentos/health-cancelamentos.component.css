@@ -1,0 +1,128 @@
+.tab-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.tab-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.tab-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 800px;
+}
+
+.table-container {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1200px;
+}
+
+.data-table th,
+.data-table td {
+  padding: 1.2rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.data-table th {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+}
+
+.data-table td {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  vertical-align: middle;
+}
+
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.fw-700 { font-weight: 700; }
+
+.col-cliente { width: 180px; }
+.col-produto { width: 180px; color: var(--text-secondary) !important; }
+.col-receita { width: 120px; }
+.col-motivo { width: 300px; color: var(--text-secondary) !important; line-height: 1.4; }
+.col-prevencao { width: 350px; color: var(--text-secondary) !important; line-height: 1.4; }
+
+/* Event Badges */
+.event-badge {
+  display: inline-block;
+  padding: 0.35rem 2rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid transparent;
+  width: 120px;
+}
+
+.badge-churn {
+  color: #F43F5E;
+  border-color: #F43F5E;
+  background-color: rgba(244, 63, 94, 0.1);
+}
+
+.badge-downsell {
+  color: #FBBF24;
+  border-color: #FBBF24;
+  background-color: rgba(251, 191, 36, 0.1);
+}
+
+/* Sintese Card */
+.sintese-card {
+  display: flex;
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.sintese-border {
+  width: 6px;
+  background-color: #14B8A6; /* Teal/Cyan */
+}
+
+.sintese-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sintese-content h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.sintese-content p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}

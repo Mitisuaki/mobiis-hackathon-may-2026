@@ -1,0 +1,15 @@
+<div class="tab-page">
+  <h2 class="tab-title">{{ 'HEALTH.RESUMO_TITLE' | translate }}</h2>
+  <p class="tab-subtitle">{{ 'HEALTH.RESUMO_SUBTITLE' | translate }}</p>
+
+  <div class="cards-container">
+    <div class="decision-card" *ngFor="let dec of decisions" [ngClass]="dec.colorClass">
+      <h3 class="card-title">{{ 'HEALTH.' + dec.titleKey | translate }}</h3>
+      <p class="card-desc">{{ 'HEALTH.' + dec.descKey | translate }}</p>
+    </div>
+  </div>
+
+  <div class="summary-banner">
+    <p>{{ 'HEALTH.RESUMO_BANNER' | translate }}</p>
+  </div>
+</div>

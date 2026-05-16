@@ -1,0 +1,95 @@
+<div class="health-wrapper">
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <span class="breadcrumb">{{ 'HEALTH.BREADCRUMB' | translate }}</span>
+    <span class="base-badge">{{ 'HEALTH.BASE_BADGE' | translate }}</span>
+  </div>
+
+  <!-- Main Content -->
+  <div class="health-grid">
+
+    <!-- Left Column -->
+    <div class="left-col">
+      <div class="brand">Mobiis</div>
+      <h1 class="main-title">{{ 'HEALTH.MAIN_TITLE' | translate }}</h1>
+      <p class="subtitle">
+        {{ 'HEALTH.SUBTITLE' | translate }}
+      </p>
+
+      <!-- Tab Buttons -->
+      <div class="tab-buttons">
+        <button class="tab-btn overview" [class.active]="activeTab === 'overview'" (click)="activeTab = 'overview'">{{ 'HEALTH.TAB_OVERVIEW' | translate }}</button>
+        <button class="tab-btn categorias" [class.active]="activeTab === 'categorias'" (click)="activeTab = 'categorias'">{{ 'HEALTH.TAB_CATEGORIAS' | translate }}</button>
+        <button class="tab-btn ocorrencias" [class.active]="activeTab === 'ocorrencias'" (click)="activeTab = 'ocorrencias'">{{ 'HEALTH.TAB_OCORRENCIAS' | translate }}</button>
+        <button class="tab-btn clientes" [class.active]="activeTab === 'clientes'" (click)="activeTab = 'clientes'">{{ 'HEALTH.TAB_CLIENTES' | translate }}</button>
+        <button class="tab-btn churn" [class.active]="activeTab === 'churn'" (click)="activeTab = 'churn'">{{ 'HEALTH.TAB_CHURN' | translate }}</button>
+        <button class="tab-btn suporte" [class.active]="activeTab === 'suporte'" (click)="activeTab = 'suporte'">{{ 'HEALTH.TAB_SUPORTE' | translate }}</button>
+        <button class="tab-btn risco" [class.active]="activeTab === 'risco'" (click)="activeTab = 'risco'">{{ 'HEALTH.TAB_RISCO' | translate }}</button>
+        <button class="tab-btn retencao" [class.active]="activeTab === 'retencao'" (click)="activeTab = 'retencao'">{{ 'HEALTH.TAB_RETENCAO' | translate }}</button>
+        <button class="tab-btn client360" [class.active]="activeTab === 'client360'" (click)="activeTab = 'client360'">{{ 'HEALTH.TAB_CLIENT360' | translate }}</button>
+        <button class="tab-btn cancelamentos" [class.active]="activeTab === 'cancelamentos'" (click)="activeTab = 'cancelamentos'">{{ 'HEALTH.TAB_CANCELAMENTOS' | translate }}</button>
+        <button class="tab-btn modelo" [class.active]="activeTab === 'modelo'" (click)="activeTab = 'modelo'">{{ 'HEALTH.TAB_MODELO' | translate }}</button>
+        <button class="tab-btn roadmap" [class.active]="activeTab === 'roadmap'" (click)="activeTab = 'roadmap'">{{ 'HEALTH.TAB_ROADMAP' | translate }}</button>
+        <button class="tab-btn resumo" [class.active]="activeTab === 'resumo'" (click)="activeTab = 'resumo'">{{ 'HEALTH.TAB_RESUMO' | translate }}</button>
+      </div>
+    </div>
+
+    <!-- Right Column (only for overview) -->
+    <div class="right-col" *ngIf="activeTab === 'overview'">
+      <div class="tab-content">
+        <app-health-overview></app-health-overview>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full-width tab content (below the grid) -->
+  <div class="tab-content" *ngIf="activeTab === 'categorias'">
+    <app-health-categorias></app-health-categorias>
+  </div>
+
+  <div class="tab-content" *ngIf="activeTab === 'ocorrencias'">
+    <app-health-ocorrencias></app-health-ocorrencias>
+  </div>
+
+  <div class="tab-content" *ngIf="activeTab === 'clientes'">
+    <app-health-clientes></app-health-clientes>
+  </div>
+
+  <div class="tab-content" *ngIf="activeTab === 'suporte'">
+    <app-health-suporte></app-health-suporte>
+  </div>
+
+  <div class="tab-content" *ngIf="activeTab === 'churn'">
+    <app-health-churn></app-health-churn>
+  </div>
+
+  <div class="tab-content" *ngIf="activeTab === 'risco'">
+    <app-health-risco></app-health-risco>
+  </div>
+
+  <div class="tab-content" *ngIf="activeTab === 'retencao'">
+    <app-health-retencao></app-health-retencao>
+  </div>
+
+  <div class="tab-content" *ngIf="activeTab === 'client360'">
+    <app-health-client360></app-health-client360>
+  </div>
+
+  <div class="tab-content" *ngIf="activeTab === 'cancelamentos'">
+    <app-health-cancelamentos></app-health-cancelamentos>
+  </div>
+
+  <div class="tab-content" *ngIf="activeTab === 'modelo'">
+    <app-health-modelo></app-health-modelo>
+  </div>
+
+  <div class="tab-content" *ngIf="activeTab === 'roadmap'">
+    <app-health-roadmap></app-health-roadmap>
+  </div>
+
+  <div class="tab-content" *ngIf="activeTab === 'resumo'">
+    <app-health-resumo></app-health-resumo>
+  </div>
+
+</div>

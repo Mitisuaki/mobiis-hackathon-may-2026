@@ -1,0 +1,21 @@
+<div class="tab-page">
+  <h2 class="tab-title">{{ 'HEALTH.ROADMAP_TITLE' | translate }}</h2>
+  <p class="tab-subtitle">{{ 'HEALTH.ROADMAP_SUBTITLE' | translate }}</p>
+
+  <div class="cards-container">
+    <div class="roadmap-card" *ngFor="let phase of phases" [ngClass]="phase.colorClass">
+      <div class="card-time">{{ 'HEALTH.' + phase.timeKey | translate }}</div>
+      
+      <div class="title-container" [class.dotted-border]="phase.showDottedBorder">
+        <h3 class="card-title">{{ 'HEALTH.' + phase.titleKey | translate }}</h3>
+      </div>
+      
+      <p class="card-desc">{{ 'HEALTH.' + phase.descKey | translate }}</p>
+
+      <div class="card-footer">
+        <div class="footer-divider"></div>
+        <span class="footer-text">{{ 'HEALTH.' + phase.footerKey | translate }}</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,156 @@
+.tab-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.tab-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.tab-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 800px;
+}
+
+.split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Left Column List */
+.list-container {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  min-height: 480px;
+}
+
+.list-container h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 2rem 0;
+}
+
+.h-bar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.h-bar-item {
+  display: grid;
+  grid-template-columns: 180px 1fr 40px;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.h-bar-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.h-bar-track {
+  width: 100%;
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+@keyframes slideInBar {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.h-bar-fill {
+  height: 100%;
+  background-color: #A78BFA;
+  border-radius: 4px;
+  transform-origin: left;
+  animation: slideInBar 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Special styling for the first prominent item to slightly differ if wanted, but mockup shows all same color */
+.h-bar-item:first-child .h-bar-fill {
+  background-color: #A78BFA;
+}
+
+.h-bar-value {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #A78BFA;
+  text-align: right;
+}
+
+/* Right Column Cards */
+.insights-container {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-height: 480px;
+}
+
+.insights-container h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.insight-card {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-left-width: 4px;
+}
+
+.insight-card h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.75rem 0;
+}
+
+.insight-card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Accent Borders */
+.red-border {
+  border-left-color: #F43F5E;
+}
+
+.light-blue-border {
+  border-left-color: #38BDF8;
+}
+
+.yellow-border {
+  border-left-color: #EAB308;
+}
+
+@media (max-width: 1024px) {
+  .split-layout {
+    grid-template-columns: 1fr;
+  }
+}

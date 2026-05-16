@@ -1,0 +1,16 @@
+<div class="tab-page">
+  <h2 class="tab-title">{{ 'HEALTH.MODELO_TITLE' | translate }}</h2>
+  <p class="tab-subtitle">{{ 'HEALTH.MODELO_SUBTITLE' | translate }}</p>
+
+  <div class="cards-container">
+    <div class="process-card" *ngFor="let card of cards" [ngClass]="card.colorClass">
+      <div class="card-num">{{ 'HEALTH.' + card.numKey | translate }}</div>
+      <h3 class="card-title">{{ 'HEALTH.' + card.titleKey | translate }}</h3>
+      <p class="card-desc">{{ 'HEALTH.' + card.descKey | translate }}</p>
+    </div>
+  </div>
+
+  <div class="principle-banner">
+    <p>{{ 'HEALTH.MODELO_PRINCIPIO' | translate }}</p>
+  </div>
+</div>
