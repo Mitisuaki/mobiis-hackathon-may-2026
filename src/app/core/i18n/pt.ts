@@ -9,8 +9,7 @@ export const pt = {
     DARK_MODE: 'Modo Escuro',
     LIGHT_MODE: 'Modo Claro',
     LOGOUT: 'Sair',
-    PROPOSAL: 'Proposta IA',
-    INDICADORES: 'Indicadores'
+    PROPOSAL: 'Proposta IA'
   },
   HOME: {
     TAGLINE: 'PLATAFORMA DE INTELIGÊNCIA',
@@ -122,29 +121,6 @@ export const pt = {
     BENEFIT2_DESC: 'Extração automática de dores e necessidades com alta taxa de acerto baseada em NLP avançado.',
     BENEFIT3_TITLE: 'Conversão',
     BENEFIT3_DESC: 'Propostas personalizadas aumentam a taxa de fechamento e reduzem ciclos de venda.'
-  },
-  INDICADORES: {
-    TITLE: 'Painel de Gestão de Tickets',
-    SUBTITLE: 'Análise de Risco de Churn e Indicadores de Desempenho',
-    SUMMARY_TOTAL: 'Total de Tickets',
-    SUMMARY_SOLUCIONADOS: 'Solucionados',
-    SUMMARY_PENDENTES: 'Pendentes',
-    SUMMARY_TAXA: 'Taxa de Resolução',
-    CHURN_TITLE: 'Análise de Risco de Churn por Cliente',
-    COL_CLIENTE: 'Cliente',
-    COL_TOTAL: 'Total',
-    COL_PENDENTES: 'Pendentes',
-    COL_PROBLEMAS: 'Problemas',
-    COL_URGENTES: 'Urgentes',
-    COL_SCORE: 'Score',
-    COL_CLASSIFICACAO: 'Classificação',
-    STATUS_TITLE: 'Tickets por Status',
-    PROPRIETARIO_TITLE: 'Tickets por Proprietário',
-    CATEGORIA_TITLE: 'Tickets por Categoria',
-    NIVEL_TITLE: 'Tickets por Nível de Serviço',
-    RESUMO_RISCO_TITLE: 'Resumo de Risco de Churn',
-    LOADING: 'Carregando...',
-    ERROR: 'Erro ao carregar dados'
   },
   MEET: {
     TITLE: 'Meeting Intelligence',
@@ -498,7 +474,13 @@ export const pt = {
       OCC_OTHER: 'Outros',
       OCC_UNFILLED: 'Não Preenchido',
       OCC_REQUEST: 'Solicitação',
-      OCC_PROBLEM: 'Problema'
+      OCC_PROBLEM: 'Problema',
+      OCC_CANCELLATION: 'Cancelamento',
+      OCC_SUSPENSION: 'Suspensão',
+      OCC_INATTENTION: 'Desatenção',
+      OCC_REVISION: 'Revisão',
+      OCC_FINANCIAL: 'Financeiro',
+      OCC_COMPLAINT: 'Reclamação'
     },
     SIGNALS: {
       TICKET_VOLUME: {
@@ -566,35 +548,5 @@ export const pt = {
     CARD3_TEXT: 'Quando a exceção vira ticket do jeito certo, a operação perde menos tempo explicando e ganha mais tempo resolvendo.',
     BTN_OPEN: 'Abrir chamado',
     BTN_NOTIFY: 'Notificar time'
-  },
-  ROI: {
-    TITLE: 'Cockpit Executivo',
-    SUBTITLE: 'A leitura que traduz o produto em ganho, velocidade e posicionamento estratégico.',
-    METRIC1_TITLE: 'Economia administrativa',
-    METRIC1_VAL: '46h/mês',
-    METRIC1_BADGE: '+70%',
-    METRIC2_TITLE: 'Velocidade de follow-up',
-    METRIC2_VAL: '-80%',
-    METRIC2_BADGE: 'tempo',
-    METRIC3_TITLE: 'Risco operacional',
-    METRIC3_VAL: '-32%',
-    METRIC3_BADGE: 'alertas',
-    CHART_TITLE: 'Impacto por etapa',
-    CHART_SUB: 'Minutos médios por rotina antes e depois',
-    CHART_MEET: 'Reunião',
-    CHART_CRM: 'CRM',
-    CHART_FOLLOW: 'Follow-up',
-    CHART_ESC: 'Escalação',
-    CHART_LEGEND1: 'Antes',
-    CHART_LEGEND2: 'Com Copilot',
-    MSG_TITLE: 'Mensagem para a banca',
-    MSG_TEXT: 'Não é apenas um dashboard bonito. É um software que reduz trabalho manual, melhora disciplina comercial e conecta informação à ação.',
-    FLOW_TITLE: 'Fluxo unificado da solução',
-    FLOW_1: 'Teams',
-    FLOW_2: 'Revenue Copilot',
-    FLOW_3: 'Pipedrive',
-    FLOW_4: 'Desk',
-    BANNER_TEXT: 'Fechamento: a Mobiis passa a transformar informação dispersa em decisão comercial clara, rápida e padronizada.',
-    BANNER_BTN: 'Demo pronta'
   }
 };
