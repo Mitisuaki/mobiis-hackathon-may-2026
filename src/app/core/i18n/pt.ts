@@ -71,7 +71,18 @@ export const pt = {
     BENEFIT2_TITLE: 'Precisão',
     BENEFIT2_DESC: 'Extração automática de dores e necessidades com alta taxa de acerto baseada em NLP avançado.',
     BENEFIT3_TITLE: 'Conversão',
-    BENEFIT3_DESC: 'Propostas personalizadas aumentam a taxa de fechamento e reduzem ciclos de venda.'
+    BENEFIT3_DESC: 'Propostas personalizadas aumentam a taxa de fechamento e reduzem ciclos de venda.',
+    SEARCH_PLACEHOLDER: 'Buscar reunião por assunto...',
+    LOADING_MEETINGS: 'Carregando reuniões...',
+    LOADING_TRANSCRIPT: 'Carregando transcrição...',
+    NO_MEETINGS: 'Nenhuma reunião encontrada.',
+    GENERATE_PROPOSAL: 'Gerar Proposta IA',
+    GENERATING: 'Gerando proposta...',
+    SUMMARY: 'Resumo da Reunião',
+    SENTIMENT: 'Sentimento do Cliente',
+    PROBLEMS_IDENTIFIED: 'Problemas Identificados',
+    ACTIONS_RECOMMENDED: 'Ações Recomendadas',
+    FALLBACK_WARNING: 'Não foi possível gerar a proposta em tempo real. Exibindo proposta de referência.'
   },
   MEET: {
     TITLE: 'Reuniões',
