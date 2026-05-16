@@ -9,6 +9,7 @@ import { HealthComponent } from './domains/dashboard/health/health.component';
 import { MeetComponent } from './domains/dashboard/meet/meet.component';
 import { CrmComponent } from './domains/dashboard/crm/crm.component';
 import { DeskComponent } from './domains/dashboard/desk/desk.component';
+import { RoiComponent } from './domains/dashboard/roi/roi.component';
 import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
@@ -24,7 +25,7 @@ export const routes: Routes = [
       { path: 'crm', component: CrmComponent },
       { path: 'health', component: HealthComponent },
       { path: 'desk', component: DeskComponent },
-      { path: 'roi', component: PlaceholderComponent },
+      { path: 'roi', component: RoiComponent },
       { path: 'proposal', component: ProposalComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '**', redirectTo: 'home' }
