@@ -9,7 +9,8 @@ export const pt = {
     DARK_MODE: 'Modo Escuro',
     LIGHT_MODE: 'Modo Claro',
     LOGOUT: 'Sair',
-    PROPOSAL: 'Proposta IA'
+    PROPOSAL: 'Proposta IA',
+    INDICADORES: 'Indicadores'
   },
   HOME: {
     TAGLINE: 'PLATAFORMA DE INTELIGÊNCIA',
@@ -548,5 +549,28 @@ export const pt = {
     CARD3_TEXT: 'Quando a exceção vira ticket do jeito certo, a operação perde menos tempo explicando e ganha mais tempo resolvendo.',
     BTN_OPEN: 'Abrir chamado',
     BTN_NOTIFY: 'Notificar time'
-  }
+  },
+  INDICADORES: {
+    TITLE: 'Painel de Gestão de Tickets',
+    SUBTITLE: 'Análise de Risco de Churn e Indicadores de Desempenho',
+    SUMMARY_TOTAL: 'Total de Tickets',
+    SUMMARY_SOLUCIONADOS: 'Solucionados',
+    SUMMARY_PENDENTES: 'Pendentes',
+    SUMMARY_TAXA: 'Taxa de Resolução',
+    CHURN_TITLE: 'Análise de Risco de Churn por Cliente',
+    COL_CLIENTE: 'Cliente',
+    COL_TOTAL: 'Total',
+    COL_PENDENTES: 'Pendentes',
+    COL_PROBLEMAS: 'Problemas',
+    COL_URGENTES: 'Urgentes',
+    COL_SCORE: 'Score',
+    COL_CLASSIFICACAO: 'Classificação',
+    STATUS_TITLE: 'Tickets por Status',
+    PROPRIETARIO_TITLE: 'Tickets por Proprietário',
+    CATEGORIA_TITLE: 'Tickets por Categoria',
+    NIVEL_TITLE: 'Tickets por Nível de Serviço',
+    RESUMO_RISCO_TITLE: 'Resumo de Risco de Churn',
+    LOADING: 'Carregando...',
+    ERROR: 'Erro ao carregar dados'
+  },
 };
