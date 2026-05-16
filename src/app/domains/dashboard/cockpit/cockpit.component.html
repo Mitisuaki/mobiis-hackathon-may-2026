@@ -1,13 +1,9 @@
-<div class="page-slider-wrapper" 
-     (touchstart)="onTouchStart($event)" 
-     (touchend)="onTouchEnd($event)"
-     (mousedown)="onMouseDown($event)" 
-     (mousemove)="onMouseMove($event)" 
-     (mouseup)="onMouseUp($event)" 
-     (mouseleave)="onMouseLeave($event)">
-  
+<div class="page-slider-wrapper" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)"
+  (mousedown)="onMouseDown($event)" (mousemove)="onMouseMove($event)" (mouseup)="onMouseUp($event)"
+  (mouseleave)="onMouseLeave($event)">
+
   <div class="slider-track" [style.transform]="'translateX(-' + currentSlide * 100 + '%)'">
-    
+
     <!-- SLIDE 1: Original Cockpit Layout -->
     <div class="slide-page slide-dark">
       <div class="cockpit-container">
@@ -19,14 +15,17 @@
           <p class="description">{{ 'COCKPIT.DESCRIPTION' | translate }}</p>
 
           <ul class="features-list">
-            <li><span class="dot"></span><strong>{{ 'COCKPIT.FEAT_MEETING' | translate }}</strong> {{ 'COCKPIT.FEAT_MEETING_DESC' | translate }}</li>
-            <li><span class="dot"></span><strong>{{ 'COCKPIT.FEAT_CRM' | translate }}</strong> {{ 'COCKPIT.FEAT_CRM_DESC' | translate }}</li>
-            <li><span class="dot"></span><strong>{{ 'COCKPIT.FEAT_HEALTH' | translate }}</strong> {{ 'COCKPIT.FEAT_HEALTH_DESC' | translate }}</li>
+            <li><span class="dot"></span><strong>{{ 'COCKPIT.FEAT_MEETING' | translate }}</strong> {{
+              'COCKPIT.FEAT_MEETING_DESC' | translate }}</li>
+            <li><span class="dot"></span><strong>{{ 'COCKPIT.FEAT_CRM' | translate }}</strong> {{
+              'COCKPIT.FEAT_CRM_DESC' | translate }}</li>
+            <li><span class="dot"></span><strong>{{ 'COCKPIT.FEAT_HEALTH' | translate }}</strong> {{
+              'COCKPIT.FEAT_HEALTH_DESC' | translate }}</li>
           </ul>
 
           <div class="action-buttons">
             <button class="btn-green">{{ 'COCKPIT.BTN_JOURNEYS' | translate }}</button>
-            <button class="btn-blue">{{ 'COCKPIT.BTN_PITCH' | translate }}</button>
+            <button class="btn-blue" (click)="downloadPresentation()">{{ 'COCKPIT.BTN_PITCH' | translate }}</button>
           </div>
 
           <p class="footer-text">{{ 'COCKPIT.FOOTER_TEXT' | translate }}</p>
@@ -59,25 +58,33 @@
               <div class="meetings-summary">
                 <h4>{{ 'COCKPIT.MEETINGS_SUMMARY' | translate }}</h4>
                 <p class="subtitle-text">{{ 'COCKPIT.MEETINGS_SUBTITLE' | translate }}</p>
-                
+
                 <div class="progress-item">
                   <span>{{ 'COCKPIT.PROG_DISCOVERY' | translate }}</span>
-                  <div class="progress-bar-container"><div class="progress-fill blue-fill" style="width: 68%;"></div></div>
+                  <div class="progress-bar-container">
+                    <div class="progress-fill blue-fill" style="width: 68%;"></div>
+                  </div>
                   <span class="percentage">68%</span>
                 </div>
                 <div class="progress-item">
                   <span>{{ 'COCKPIT.PROG_WMS' | translate }}</span>
-                  <div class="progress-bar-container"><div class="progress-fill green-fill" style="width: 82%;"></div></div>
+                  <div class="progress-bar-container">
+                    <div class="progress-fill green-fill" style="width: 82%;"></div>
+                  </div>
                   <span class="percentage">82%</span>
                 </div>
                 <div class="progress-item">
                   <span>{{ 'COCKPIT.PROG_YMS' | translate }}</span>
-                  <div class="progress-bar-container"><div class="progress-fill blue-fill" style="width: 54%;"></div></div>
+                  <div class="progress-bar-container">
+                    <div class="progress-fill blue-fill" style="width: 54%;"></div>
+                  </div>
                   <span class="percentage">54%</span>
                 </div>
                 <div class="progress-item">
                   <span>{{ 'COCKPIT.PROG_EXPANSION' | translate }}</span>
-                  <div class="progress-bar-container"><div class="progress-fill green-fill" style="width: 74%;"></div></div>
+                  <div class="progress-bar-container">
+                    <div class="progress-fill green-fill" style="width: 74%;"></div>
+                  </div>
                   <span class="percentage">74%</span>
                 </div>
               </div>
@@ -102,7 +109,7 @@
     <!-- SLIDE 2: Commercial Cockpit -->
     <div class="slide-page slide-light">
       <div class="cockpit-commercial-container">
-        
+
         <!-- Header -->
         <div class="comm-header">
           <div class="comm-title-box">
@@ -114,31 +121,35 @@
         <!-- Metrics Row -->
         <div class="comm-metrics">
           <div class="metric-card">
-             <div class="metric-head"><span class="dot-green"></span> {{ 'COCKPIT.COCKPIT_METRIC1_TITLE' | translate }}</div>
-             <div class="metric-val">84/100 <span class="badge-green">+12%</span></div>
+            <div class="metric-head"><span class="dot-green"></span> {{ 'COCKPIT.COCKPIT_METRIC1_TITLE' | translate }}
+            </div>
+            <div class="metric-val">84/100 <span class="badge-green">+12%</span></div>
           </div>
           <div class="metric-card">
-             <div class="metric-head"><span class="dot-blue"></span> {{ 'COCKPIT.COCKPIT_METRIC2_TITLE' | translate }}</div>
-             <div class="metric-val">27 <span class="badge-blue">+8</span></div>
+            <div class="metric-head"><span class="dot-blue"></span> {{ 'COCKPIT.COCKPIT_METRIC2_TITLE' | translate }}
+            </div>
+            <div class="metric-val">27 <span class="badge-blue">+8</span></div>
           </div>
           <div class="metric-card">
-             <div class="metric-head"><span class="dot-green"></span> {{ 'COCKPIT.COCKPIT_METRIC3_TITLE' | translate }}</div>
-             <div class="metric-val">93% <span class="badge-green">+11%</span></div>
+            <div class="metric-head"><span class="dot-green"></span> {{ 'COCKPIT.COCKPIT_METRIC3_TITLE' | translate }}
+            </div>
+            <div class="metric-val">93% <span class="badge-green">+11%</span></div>
           </div>
           <div class="metric-card">
-             <div class="metric-head"><span class="dot-orange"></span> {{ 'COCKPIT.COCKPIT_METRIC4_TITLE' | translate }}</div>
-             <div class="metric-val">46h <span class="badge-orange">-70%</span></div>
+            <div class="metric-head"><span class="dot-orange"></span> {{ 'COCKPIT.COCKPIT_METRIC4_TITLE' | translate }}
+            </div>
+            <div class="metric-val">46h <span class="badge-orange">-70%</span></div>
           </div>
         </div>
 
         <!-- Main Content Grid -->
         <div class="comm-main">
-          
+
           <!-- Chart Placeholder (Evolução do pipeline) -->
           <div class="chart-card">
             <h3>{{ 'COCKPIT.COCKPIT_CHART_TITLE' | translate }}</h3>
             <p>{{ 'COCKPIT.COCKPIT_CHART_SUBTITLE' | translate }}</p>
-            
+
             <div class="chart-area">
               <!-- Visual placeholder for the chart using simple CSS lines/dots -->
               <div class="chart-mock">
@@ -157,27 +168,29 @@
                   <div class="grid-line" style="bottom: 50%"></div>
                   <div class="grid-line" style="bottom: 75%"></div>
                   <div class="grid-line" style="bottom: 100%"></div>
-                  
+
                   <!-- Green Line (Follow-up no prazo) — starts ~60, rises to ~95 -->
                   <svg class="chart-svg" viewBox="0 0 500 200" preserveAspectRatio="none">
-                    <polyline points="0,80 100,56 200,50 300,40 400,26 500,10" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-                    <circle cx="0" cy="80" r="4" fill="#10B981"/>
-                    <circle cx="100" cy="56" r="4" fill="#10B981"/>
-                    <circle cx="200" cy="50" r="4" fill="#10B981"/>
-                    <circle cx="300" cy="40" r="4" fill="#10B981"/>
-                    <circle cx="400" cy="26" r="4" fill="#10B981"/>
-                    <circle cx="500" cy="10" r="4" fill="#10B981"/>
-                    
+                    <polyline points="0,80 100,56 200,50 300,40 400,26 500,10" fill="none" stroke="#10B981"
+                      stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" />
+                    <circle cx="0" cy="80" r="4" fill="#10B981" />
+                    <circle cx="100" cy="56" r="4" fill="#10B981" />
+                    <circle cx="200" cy="50" r="4" fill="#10B981" />
+                    <circle cx="300" cy="40" r="4" fill="#10B981" />
+                    <circle cx="400" cy="26" r="4" fill="#10B981" />
+                    <circle cx="500" cy="10" r="4" fill="#10B981" />
+
                     <!-- Blue Line (Deals priorizados) — starts ~5, rises to ~20 -->
-                    <polyline points="0,190 100,180 200,184 300,174 400,166 500,160" fill="none" stroke="#3B82F6" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-                    <circle cx="0" cy="190" r="4" fill="#3B82F6"/>
-                    <circle cx="100" cy="180" r="4" fill="#3B82F6"/>
-                    <circle cx="200" cy="184" r="4" fill="#3B82F6"/>
-                    <circle cx="300" cy="174" r="4" fill="#3B82F6"/>
-                    <circle cx="400" cy="166" r="4" fill="#3B82F6"/>
-                    <circle cx="500" cy="160" r="4" fill="#3B82F6"/>
+                    <polyline points="0,190 100,180 200,184 300,174 400,166 500,160" fill="none" stroke="#3B82F6"
+                      stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" />
+                    <circle cx="0" cy="190" r="4" fill="#3B82F6" />
+                    <circle cx="100" cy="180" r="4" fill="#3B82F6" />
+                    <circle cx="200" cy="184" r="4" fill="#3B82F6" />
+                    <circle cx="300" cy="174" r="4" fill="#3B82F6" />
+                    <circle cx="400" cy="166" r="4" fill="#3B82F6" />
+                    <circle cx="500" cy="160" r="4" fill="#3B82F6" />
                   </svg>
-                  
+
                   <!-- X Axis Labels -->
                   <div class="chart-x-axis">
                     <span>S1</span>
@@ -192,14 +205,16 @@
             </div>
 
             <div class="chart-legend">
-              <span class="legend-item"><span class="dot-blue"></span> {{ 'COCKPIT.COCKPIT_CHART_LEGEND1' | translate }}</span>
-              <span class="legend-item"><span class="dot-green"></span> {{ 'COCKPIT.COCKPIT_CHART_LEGEND2' | translate }}</span>
+              <span class="legend-item"><span class="dot-blue"></span> {{ 'COCKPIT.COCKPIT_CHART_LEGEND1' | translate
+                }}</span>
+              <span class="legend-item"><span class="dot-green"></span> {{ 'COCKPIT.COCKPIT_CHART_LEGEND2' | translate
+                }}</span>
             </div>
           </div>
 
           <!-- Actions & Deals Column -->
           <div class="comm-actions-col">
-            
+
             <!-- Best Actions -->
             <div class="actions-card">
               <h3>{{ 'COCKPIT.COCKPIT_ACTIONS_TITLE' | translate }}</h3>
@@ -209,7 +224,7 @@
                 <li><span class="dot-green"></span> {{ 'COCKPIT.COCKPIT_ACTION2' | translate }}</li>
               </ul>
             </div>
-            
+
             <!-- Priority Deals -->
             <div class="deals-card">
               <h3>{{ 'COCKPIT.COCKPIT_DEALS_TITLE' | translate }}</h3>

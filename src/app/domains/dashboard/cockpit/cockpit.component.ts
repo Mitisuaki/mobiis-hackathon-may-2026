@@ -70,4 +70,12 @@ export class CockpitComponent {
       if (this.currentSlide > 0) this.currentSlide--;
     }
   }
+
+  public downloadPresentation() {
+    const link = document.createElement('a');
+    link.href = '../../../../public/Mobiis_Revenue_Copilot_Pitch.pptx';
+    link.download = 'Mobiis_Revenue_Copilot_Pitch.pptx';
+    link.click();
+    link.remove();
+  }
 }
