@@ -28,6 +28,10 @@ export class ProposalService {
     );
   }
 
+  getFallbackProposal(): Observable<ProposalSummary> {
+    return this.http.get<ProposalSummary>('assets/data/proposta-fallback.json');
+  }
+
   async downloadProposal(filePath: string, downloadName: string): Promise<void> {
     const content = `Proposta Comercial - ${downloadName}\n\nEste documento foi gerado automaticamente pelo Mobiis Revenue Copilot.\nArquivo: ${filePath}`;
     const blob = new Blob([content], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });

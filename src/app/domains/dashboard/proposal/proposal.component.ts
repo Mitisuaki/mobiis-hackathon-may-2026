@@ -37,6 +37,7 @@ export class ProposalComponent implements OnInit, OnDestroy {
   proposal = signal<ProposalSummary | null>(null);
   loadingProposal = signal(false);
   errorProposal = signal<string | null>(null);
+  isFallback = signal(false);
 
   searchSubject = new Subject<string>();
   searchValue = '';
@@ -134,11 +135,25 @@ export class ProposalComponent implements OnInit, OnDestroy {
     this.proposalService.generateProposalFromTranscript(content.segments).subscribe({
       next: (data) => {
         this.proposal.set(data);
+        this.isFallback.set(false);
         this.loadingProposal.set(false);
       },
       error: (err) => {
         this.errorProposal.set(err?.message || 'Erro ao gerar proposta');
         this.loadingProposal.set(false);
+        this.loadFallbackProposal();
+      }
+    });
+  }
+
+  loadFallbackProposal(): void {
+    this.proposalService.getFallbackProposal().subscribe({
+      next: (data) => {
+        this.proposal.set(data);
+        this.isFallback.set(true);
+      },
+      error: () => {
+        // Mantém a mensagem de erro original se o fallback também falhar
       }
     });
   }

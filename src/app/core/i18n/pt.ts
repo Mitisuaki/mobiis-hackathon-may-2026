@@ -80,7 +80,8 @@ export const pt = {
     SUMMARY: 'Resumo da Reunião',
     SENTIMENT: 'Sentimento do Cliente',
     PROBLEMS_IDENTIFIED: 'Problemas Identificados',
-    ACTIONS_RECOMMENDED: 'Ações Recomendadas'
+    ACTIONS_RECOMMENDED: 'Ações Recomendadas',
+    FALLBACK_WARNING: 'Não foi possível gerar a proposta em tempo real. Exibindo proposta de referência.'
   },
   HEALTH: {
     BREADCRUMB: 'MOBIIS • CUSTOMER SUCCESS INTELLIGENCE',

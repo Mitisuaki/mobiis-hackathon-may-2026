@@ -80,7 +80,8 @@ export const es = {
     SUMMARY: 'Resumen de la Reunión',
     SENTIMENT: 'Sentimiento del Cliente',
     PROBLEMS_IDENTIFIED: 'Problemas Identificados',
-    ACTIONS_RECOMMENDED: 'Acciones Recomendadas'
+    ACTIONS_RECOMMENDED: 'Acciones Recomendadas',
+    FALLBACK_WARNING: 'No se pudo generar la propuesta en tiempo real. Mostrando propuesta de referencia.'
   },
   HEALTH: {
     BREADCRUMB: 'MOBIIS • CUSTOMER SUCCESS INTELLIGENCE',
