@@ -6,6 +6,7 @@ import { HomeComponent } from './domains/dashboard/home/home.component';
 import { PlaceholderComponent } from './domains/dashboard/placeholder/placeholder.component';
 import { ProposalComponent } from './domains/dashboard/proposal/proposal.component';
 import { HealthComponent } from './domains/dashboard/health/health.component';
+import { IndicadoresComponent } from './domains/dashboard/indicadores/indicadores.component';
 import { MeetComponent } from './domains/dashboard/meet/meet.component';
 import { CrmComponent } from './domains/dashboard/crm/crm.component';
 import { DeskComponent } from './domains/dashboard/desk/desk.component';
@@ -27,6 +28,7 @@ export const routes: Routes = [
       { path: 'desk', component: DeskComponent },
       { path: 'roi', component: RoiComponent },
       { path: 'proposal', component: ProposalComponent },
+      { path: 'indicadores', component: IndicadoresComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '**', redirectTo: 'home' }
     ]
