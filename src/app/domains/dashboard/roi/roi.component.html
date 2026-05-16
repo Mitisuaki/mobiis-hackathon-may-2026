@@ -1,0 +1,154 @@
+<div class="roi-container">
+
+  <!-- Header -->
+  <div class="roi-header">
+    <div class="header-main">
+      <div>
+        <h1 class="roi-title">{{ 'ROI.TITLE' | translate }}</h1>
+        <p class="roi-subtitle">{{ 'ROI.SUBTITLE' | translate }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Metrics -->
+  <div class="top-metrics-row">
+    <!-- Card 1 -->
+    <div class="roi-card metric-card">
+      <div class="metric-head">
+        <span class="icon-circle green-circle"><span class="dot-green"></span></span>
+        <span class="metric-title">{{ 'ROI.METRIC1_TITLE' | translate }}</span>
+      </div>
+      <div class="metric-body">
+        <span class="metric-value">{{ 'ROI.METRIC1_VAL' | translate }}</span>
+        <span class="badge badge-green">{{ 'ROI.METRIC1_BADGE' | translate }}</span>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="roi-card metric-card">
+      <div class="metric-head">
+        <span class="icon-circle blue-circle"><span class="dot-blue"></span></span>
+        <span class="metric-title">{{ 'ROI.METRIC2_TITLE' | translate }}</span>
+      </div>
+      <div class="metric-body">
+        <span class="metric-value">{{ 'ROI.METRIC2_VAL' | translate }}</span>
+        <span class="badge badge-blue">{{ 'ROI.METRIC2_BADGE' | translate }}</span>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="roi-card metric-card">
+      <div class="metric-head">
+        <span class="icon-circle green-circle"><span class="dot-green"></span></span>
+        <span class="metric-title">{{ 'ROI.METRIC3_TITLE' | translate }}</span>
+      </div>
+      <div class="metric-body">
+        <span class="metric-value">{{ 'ROI.METRIC3_VAL' | translate }}</span>
+        <span class="badge badge-green">{{ 'ROI.METRIC3_BADGE' | translate }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Grid -->
+  <div class="roi-grid">
+    <!-- Left Column: Chart -->
+    <div class="roi-card chart-card">
+      <h3>{{ 'ROI.CHART_TITLE' | translate }}</h3>
+      <p class="card-sub">{{ 'ROI.CHART_SUB' | translate }}</p>
+
+      <div class="chart-container">
+
+        <!-- Row 1: Reunião -->
+        <div class="chart-row">
+          <div class="chart-label">{{ 'ROI.CHART_MEET' | translate }}</div>
+          <div class="chart-bars-container">
+            <div class="bar-group">
+              <div class="bar-grey" style="width: 100%;"></div>
+              <span class="bar-val-grey">60</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar-blue" style="width: 13.3%;"></div>
+              <span class="bar-val-blue">8</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: CRM -->
+        <div class="chart-row">
+          <div class="chart-label">{{ 'ROI.CHART_CRM' | translate }}</div>
+          <div class="chart-bars-container">
+            <div class="bar-group">
+              <div class="bar-grey" style="width: 75%;"></div>
+              <span class="bar-val-grey">45</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar-blue" style="width: 10%;"></div>
+              <span class="bar-val-blue">6</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3: Follow-up -->
+        <div class="chart-row">
+          <div class="chart-label">{{ 'ROI.CHART_FOLLOW' | translate }}</div>
+          <div class="chart-bars-container">
+            <div class="bar-group">
+              <div class="bar-grey" style="width: 50%;"></div>
+              <span class="bar-val-grey">30</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar-blue" style="width: 6.6%;"></div>
+              <span class="bar-val-blue">4</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 4: Escalação -->
+        <div class="chart-row">
+          <div class="chart-label">{{ 'ROI.CHART_ESC' | translate }}</div>
+          <div class="chart-bars-container">
+            <div class="bar-group">
+              <div class="bar-grey" style="width: 41.6%;"></div>
+              <span class="bar-val-grey">25</span>
+            </div>
+            <div class="bar-group">
+              <div class="bar-blue" style="width: 8.3%;"></div>
+              <span class="bar-val-blue">5</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Chart Legend -->
+      <div class="chart-legend">
+        <div class="legend-item"><span class="dot-grey"></span> {{ 'ROI.CHART_LEGEND1' | translate }}</div>
+        <div class="legend-item"><span class="dot-blue"></span> {{ 'ROI.CHART_LEGEND2' | translate }}</div>
+      </div>
+    </div>
+
+    <!-- Right Column: Info Cards -->
+    <div class="right-col-stack">
+      <!-- Message Card -->
+      <div class="roi-card message-card">
+        <h3>{{ 'ROI.MSG_TITLE' | translate }}</h3>
+        <p class="message-text"><strong>{{ 'ROI.MSG_TEXT' | translate }}</strong></p>
+      </div>
+
+      <!-- Flow Card -->
+      <div class="roi-card flow-card">
+        <h3>{{ 'ROI.FLOW_TITLE' | translate }}</h3>
+        <div class="flow-container">
+          <div class="flow-box flow-blue">{{ 'ROI.FLOW_1' | translate }}</div>
+          <div class="flow-line"></div>
+          <div class="flow-box flow-green">{{ 'ROI.FLOW_2' | translate }}</div>
+          <div class="flow-line"></div>
+          <div class="flow-box flow-blue">{{ 'ROI.FLOW_3' | translate }}</div>
+          <div class="flow-line"></div>
+          <div class="flow-box flow-orange">{{ 'ROI.FLOW_4' | translate }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

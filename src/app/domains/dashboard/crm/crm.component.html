@@ -1,0 +1,135 @@
+<div class="crm-intel-container">
+
+  <!-- Header -->
+  <div class="crm-header">
+    <div class="header-main">
+      <div>
+        <h1 class="crm-title">{{ 'CRM.TITLE' | translate }}</h1>
+        <p class="crm-subtitle">{{ 'CRM.SUBTITLE' | translate }}</p>
+      </div>
+      
+      <!-- Select Dropdown -->
+      <div class="select-container">
+        <label for="record-select">{{ 'CRM.SELECT_LABEL' | translate }}</label>
+        <select id="record-select" class="crm-select" (change)="onSelectChange($event)">
+          <option *ngFor="let item of items" [value]="item.id">{{ item.nameKey | translate }}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Grid -->
+  <div class="crm-grid">
+
+    <!-- LEFT COLUMN -->
+    <div class="crm-left">
+      <!-- Main Left Card -->
+      <div class="crm-card main-left-card">
+        
+        <div class="card-header-row">
+          <div>
+            <h3>{{ 'CRM.PREVIEW_TITLE' | translate }}</h3>
+            <p class="card-sub">{{ 'CRM.PREVIEW_SUB' | translate }}</p>
+          </div>
+        </div>
+
+        <!-- Form Fields -->
+        <div class="crm-form">
+          <div class="form-row">
+            <span class="form-label">{{ 'CRM.ORG_LABEL' | translate }}</span>
+            <div class="form-input">{{ 'CRM.' + selectedItemId() + '.ORG' | translate }}</div>
+          </div>
+          <div class="form-row">
+            <span class="form-label">{{ 'CRM.CONTACT_LABEL' | translate }}</span>
+            <div class="form-input">{{ 'CRM.' + selectedItemId() + '.CONTACT' | translate }}</div>
+          </div>
+          <div class="form-row">
+            <span class="form-label">{{ 'CRM.DEAL_LABEL' | translate }}</span>
+            <div class="form-input">{{ 'CRM.' + selectedItemId() + '.DEAL' | translate }}</div>
+          </div>
+          <div class="form-row">
+            <span class="form-label">{{ 'CRM.STATUS_LABEL' | translate }}</span>
+            <div class="form-input">{{ 'CRM.' + selectedItemId() + '.STATUS' | translate }}</div>
+          </div>
+        </div>
+
+        <!-- CRM Note -->
+        <div class="note-label">{{ 'CRM.NOTE_LABEL' | translate }}</div>
+        <div class="inner-summary-box">
+          <p class="note-text">{{ 'CRM.' + selectedItemId() + '.NOTE' | translate }}</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="crm-right">
+
+      <!-- Sync Card -->
+      <div class="crm-card sync-card">
+        <h3>{{ 'CRM.SYNC_TITLE' | translate }}</h3>
+        <p class="card-sub">{{ 'CRM.SYNC_SUB' | translate }}</p>
+        
+        <div class="sync-badges-row">
+          <div class="sync-item">
+            <span class="sync-label">{{ 'CRM.SYNC_DEAL' | translate }}</span>
+            <span class="status-badge badge-ready">{{ 'CRM.STATUS_READY' | translate }}</span>
+          </div>
+          <div class="sync-item">
+            <span class="sync-label">{{ 'CRM.SYNC_NOTE' | translate }}</span>
+            <span class="status-badge badge-ready">{{ 'CRM.STATUS_READY' | translate }}</span>
+          </div>
+          <div class="sync-item">
+            <span class="sync-label">{{ 'CRM.SYNC_ACTIVITY' | translate }}</span>
+            <span class="status-badge badge-ready">{{ 'CRM.STATUS_READY' | translate }}</span>
+          </div>
+          <div class="sync-item">
+            <span class="sync-label">{{ 'CRM.SYNC_FIELDS' | translate }}</span>
+            <span class="status-badge badge-validate">{{ 'CRM.STATUS_VALIDATE' | translate }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Frameworks Row (Products + Activities) -->
+      <div class="frameworks-row">
+        <!-- Products -->
+        <div class="crm-card framework-card">
+          <h3>{{ 'CRM.PRODUCTS_TITLE' | translate }}</h3>
+          <ul class="summary-list">
+            <li><span class="dot-green"></span> <span>{{ 'CRM.' + selectedItemId() + '.PROD_1' | translate }}</span></li>
+            <li><span class="dot-green"></span> <span>{{ 'CRM.' + selectedItemId() + '.PROD_2' | translate }}</span></li>
+            <li><span class="dot-green"></span> <span>{{ 'CRM.' + selectedItemId() + '.PROD_3' | translate }}</span></li>
+            <li><span class="dot-green"></span> <span>{{ 'CRM.' + selectedItemId() + '.PROD_4' | translate }}</span></li>
+          </ul>
+        </div>
+
+        <!-- Activities -->
+        <div class="crm-card framework-card">
+          <h3>{{ 'CRM.ACTIVITIES_TITLE' | translate }}</h3>
+          <ul class="summary-list">
+            <li><span class="dot-green"></span> <span>{{ 'CRM.' + selectedItemId() + '.ACT_1' | translate }}</span></li>
+            <li><span class="dot-green"></span> <span>{{ 'CRM.' + selectedItemId() + '.ACT_2' | translate }}</span></li>
+            <li><span class="dot-green"></span> <span>{{ 'CRM.' + selectedItemId() + '.ACT_3' | translate }}</span></li>
+            <li><span class="dot-green"></span> <span>{{ 'CRM.' + selectedItemId() + '.ACT_4' | translate }}</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Actions Card -->
+      <div class="crm-card actions-card">
+        <div class="actions-content">
+          <div class="actions-left-group">
+            <h3>{{ 'CRM.TEXT_TITLE' | translate }}</h3>
+            <p class="text-desc">{{ 'CRM.TEXT_DESC' | translate }}</p>
+          </div>
+          <div class="actions-buttons">
+            <button class="btn-save">{{ 'CRM.BTN_SAVE' | translate }}</button>
+            <button class="btn-edit">{{ 'CRM.BTN_EDIT' | translate }}</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

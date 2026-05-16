@@ -1,13 +1,74 @@
+/* Page Slider Wrappers */
+.page-slider-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  user-select: none; /* easier dragging */
+}
+
+.slider-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.slide-page {
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  overflow-y: auto;
+}
+
+.slide-dark {
+  /* Inherits dark theme from main container */
+}
+
+.slide-light {
+  background-color: var(--color-bg-main);
+  color: var(--color-text-primary);
+}
+
+/* ============================================================== */
+/* SLIDE 1: ORIGINAL COCKPIT CONTAINER                            */
+/* ============================================================== */
 .cockpit-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 5rem;
   height: 100%;
+  width: 100%;
   align-items: center;
-  padding: 1rem;
+  padding: 1rem 3rem 3rem 3rem;
 }
 
-/* Left Column Styles */
+/* Original Slide 1 Controls fixed at bottom */
+.slider-controls {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.75rem;
+  z-index: 10;
+}
+
+.slider-controls .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(120, 120, 120, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.slider-controls .dot.active {
+  background-color: var(--color-success);
+}
+
+/* Slide 1 Left Column */
 .hero-section {
   display: flex;
   flex-direction: column;
@@ -84,6 +145,8 @@
   font-weight: 600;
   font-size: 1rem;
   transition: opacity 0.2s;
+  border: none;
+  cursor: pointer;
 }
 
 .btn-blue {
@@ -94,6 +157,8 @@
   font-weight: 600;
   font-size: 1rem;
   transition: opacity 0.2s;
+  border: none;
+  cursor: pointer;
 }
 
 .btn-green:hover, .btn-blue:hover {
@@ -106,13 +171,15 @@
   color: var(--color-text-secondary);
 }
 
-/* Right Column Styles */
+/* Slide 1 Right Column */
 .workspace-section {
   background-color: var(--color-card-bg);
   border: 1px solid var(--color-border);
   border-radius: 24px;
   padding: 2rem;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
 }
 
 .workspace-card {
@@ -171,8 +238,9 @@
   gap: 0.5rem;
 }
 
-.dot-green { width: 8px; height: 8px; background-color: var(--color-success); border-radius: 50%; }
-.dot-blue { width: 8px; height: 8px; background-color: var(--color-accent-blue); border-radius: 50%; }
+.dot-green { width: 8px; height: 8px; background-color: var(--color-success); border-radius: 50%; display: inline-block; }
+.dot-blue { width: 8px; height: 8px; background-color: var(--color-accent-blue); border-radius: 50%; display: inline-block; }
+.dot-orange { width: 8px; height: 8px; background-color: #F59E0B; border-radius: 50%; display: inline-block; }
 
 .stat-value {
   font-size: 2rem;
@@ -266,15 +334,15 @@
   gap: 1rem;
 }
 
-.opportunity-score {
-  background-color: rgba(37, 99, 235, 0.05);
+.opportunity-score, .key-insight {
   border: 1px solid var(--color-border);
   padding: 1.5rem;
   border-radius: 16px;
-  text-align: center;
 }
+.opportunity-score { background-color: rgba(37, 99, 235, 0.05); text-align: center; }
+.key-insight { background-color: rgba(0, 255, 102, 0.05); }
 
-.opportunity-score h4 {
+.opportunity-score h4, .key-insight h4 {
   margin: 0 0 0.5rem 0;
   color: var(--color-text-secondary);
   font-size: 0.875rem;
@@ -286,30 +354,337 @@
   color: var(--color-text-primary);
 }
 
-.key-insight {
-  background-color: rgba(0, 255, 102, 0.05);
-  border: 1px solid var(--color-border);
-  padding: 1.5rem;
-  border-radius: 16px;
-}
-
-.key-insight h4 {
-  margin: 0 0 0.5rem 0;
-  color: var(--color-text-secondary);
-  font-size: 0.875rem;
-}
-
 .key-insight p {
   margin: 0;
   color: var(--color-text-primary);
   font-size: 0.95rem;
 }
 
+/* ============================================================== */
+/* SLIDE 2: COMMERCIAL COCKPIT                                    */
+/* ============================================================== */
+.cockpit-commercial-container {
+  width: 100%;
+  height: 100%;
+  padding: 1.25rem 2rem 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: var(--color-bg-main);
+  color: var(--color-text-primary);
+  overflow: hidden;
+}
+
+/* Header */
+.comm-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comm-title-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.comm-title {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.comm-subtitle {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+/* Search and profile removed — content lives in sidebar */
+
+/* Metrics */
+.comm-metrics {
+  display: flex;
+  gap: 1rem;
+}
+
+.metric-card {
+  flex: 1;
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 0.875rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.metric-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.metric-val {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.badge-green { font-size: 0.7rem; padding: 0.15rem 0.4rem; border-radius: 4px; background-color: #DCFCE7; color: #16A34A; font-weight: 600; }
+.badge-blue { font-size: 0.7rem; padding: 0.15rem 0.4rem; border-radius: 4px; background-color: #DBEAFE; color: #2563EB; font-weight: 600; }
+.badge-orange { font-size: 0.7rem; padding: 0.15rem 0.4rem; border-radius: 4px; background-color: #FFEDD5; color: #EA580C; font-weight: 600; }
+
+/* Main Grid */
+.comm-main {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 1.25rem;
+  flex: 1;
+  min-height: 0;
+}
+
+.chart-card, .actions-card, .deals-card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.chart-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.chart-card h3, .actions-card h3, .deals-card h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.chart-card p, .actions-card p, .deals-card p {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+/* Chart Area */
+.chart-area {
+  flex: 1;
+  min-height: 160px;
+  position: relative;
+  margin-top: 0.5rem;
+}
+
+.chart-mock {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  padding-left: 28px;
+  padding-bottom: 24px;
+}
+
+.chart-y-axis {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  color: var(--color-text-secondary);
+  width: 22px;
+  text-align: right;
+}
+
+.chart-content {
+  position: absolute;
+  left: 28px;
+  top: 0;
+  right: 0;
+  bottom: 24px;
+}
+
+.grid-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--color-border);
+}
+
+.chart-svg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  overflow: visible;
+}
+
+.chart-svg polyline {
+  vector-effect: non-scaling-stroke;
+  stroke-width: 2;
+}
+
+.chart-svg circle {
+  vector-effect: non-scaling-stroke;
+}
+
+.chart-x-axis {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  color: var(--color-text-secondary);
+}
+
+.chart-legend {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+  justify-content: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+/* Actions & Deals */
+.comm-actions-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.actions-card {
+  padding: 1rem 1.25rem;
+}
+
+.actions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.actions-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--color-text-primary);
+  line-height: 1.35;
+}
+
+.actions-list .dot-green {
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.deals-card {
+  flex: 1;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.deals-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.deals-table th {
+  text-align: left;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-text-secondary);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.deals-table td {
+  padding: 0.5rem 0;
+  font-size: 0.85rem;
+  color: var(--color-text-primary);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.deals-table tr:last-child td {
+  border-bottom: none;
+}
+
+.score-badge {
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.score-green { background-color: #DCFCE7; color: #16A34A; }
+.score-blue { background-color: #DBEAFE; color: #2563EB; }
+.score-orange { background-color: #FFEDD5; color: #EA580C; }
+
+/* Banner */
+.comm-banner {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 0.875rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  flex-shrink: 0;
+}
+
+.comm-banner p {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: 0.9rem;
+}
+
+.btn-blue-solid {
+  background-color: var(--color-btn-primary-bg);
+  color: var(--color-btn-primary-text);
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+.btn-blue-solid:hover {
+  opacity: 0.9;
+}
+
 @media (max-width: 1100px) {
-  .cockpit-container {
-    grid-template-columns: 1fr;
-  }
-  .workspace-grid {
+  .cockpit-container, .comm-main {
     grid-template-columns: 1fr;
   }
 }
+

@@ -1,103 +1,263 @@
-<div class="cockpit-container">
+<div class="page-slider-wrapper" 
+     (touchstart)="onTouchStart($event)" 
+     (touchend)="onTouchEnd($event)"
+     (mousedown)="onMouseDown($event)" 
+     (mousemove)="onMouseMove($event)" 
+     (mouseup)="onMouseUp($event)" 
+     (mouseleave)="onMouseLeave($event)">
   
-  <!-- Left Column: Hero Text -->
-  <div class="hero-section">
-    <div class="badge-hackathon">{{ 'COCKPIT.BADGE_HACKATHON' | translate }}</div>
-    <h1 class="main-title"><strong>Mobiis</strong> {{ 'COCKPIT.MAIN_TITLE' | translate }}</h1>
-    <h2 class="sub-title">{{ 'COCKPIT.SUB_TITLE' | translate }}</h2>
-    <p class="description">
-      {{ 'COCKPIT.DESCRIPTION' | translate }}
-    </p>
+  <div class="slider-track" [style.transform]="'translateX(-' + currentSlide * 100 + '%)'">
+    
+    <!-- SLIDE 1: Original Cockpit Layout -->
+    <div class="slide-page slide-dark">
+      <div class="cockpit-container">
+        <!-- Left Column: Hero Text -->
+        <div class="hero-section">
+          <div class="badge-hackathon">{{ 'COCKPIT.BADGE_HACKATHON' | translate }}</div>
+          <h1 class="main-title"><strong>Mobiis</strong> {{ 'COCKPIT.MAIN_TITLE' | translate }}</h1>
+          <h2 class="sub-title">{{ 'COCKPIT.SUB_TITLE' | translate }}</h2>
+          <p class="description">{{ 'COCKPIT.DESCRIPTION' | translate }}</p>
 
-    <ul class="features-list">
-      <li><span class="dot"></span><strong>{{ 'COCKPIT.FEAT_MEETING' | translate }}</strong> {{ 'COCKPIT.FEAT_MEETING_DESC' | translate }}</li>
-      <li><span class="dot"></span><strong>{{ 'COCKPIT.FEAT_CRM' | translate }}</strong> {{ 'COCKPIT.FEAT_CRM_DESC' | translate }}</li>
-      <li><span class="dot"></span><strong>{{ 'COCKPIT.FEAT_HEALTH' | translate }}</strong> {{ 'COCKPIT.FEAT_HEALTH_DESC' | translate }}</li>
-    </ul>
+          <ul class="features-list">
+            <li><span class="dot"></span><strong>{{ 'COCKPIT.FEAT_MEETING' | translate }}</strong> {{ 'COCKPIT.FEAT_MEETING_DESC' | translate }}</li>
+            <li><span class="dot"></span><strong>{{ 'COCKPIT.FEAT_CRM' | translate }}</strong> {{ 'COCKPIT.FEAT_CRM_DESC' | translate }}</li>
+            <li><span class="dot"></span><strong>{{ 'COCKPIT.FEAT_HEALTH' | translate }}</strong> {{ 'COCKPIT.FEAT_HEALTH_DESC' | translate }}</li>
+          </ul>
 
-    <div class="action-buttons">
-      <button class="btn-green">{{ 'COCKPIT.BTN_JOURNEYS' | translate }}</button>
-      <button class="btn-blue">{{ 'COCKPIT.BTN_PITCH' | translate }}</button>
+          <div class="action-buttons">
+            <button class="btn-green">{{ 'COCKPIT.BTN_JOURNEYS' | translate }}</button>
+            <button class="btn-blue">{{ 'COCKPIT.BTN_PITCH' | translate }}</button>
+          </div>
+
+          <p class="footer-text">{{ 'COCKPIT.FOOTER_TEXT' | translate }}</p>
+        </div>
+
+        <!-- Right Column: Revenue Workspace -->
+        <div class="workspace-section">
+          <div class="workspace-card">
+            <div class="workspace-header">
+              <h3>{{ 'COCKPIT.WORKSPACE_TITLE' | translate }}</h3>
+              <span class="badge-live">{{ 'COCKPIT.BADGE_LIVE' | translate }}</span>
+            </div>
+
+            <div class="stats-row">
+              <div class="stat-box">
+                <div class="stat-label"><span class="dot-green"></span> {{ 'COCKPIT.STAT_HOURS' | translate }}</div>
+                <div class="stat-value">64h <span class="trend-badge">+72%</span></div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-label"><span class="dot-blue"></span> {{ 'COCKPIT.STAT_FOLLOWUPS' | translate }}</div>
+                <div class="stat-value">92 <span class="trend-badge badge-blue">+31%</span></div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-label"><span class="dot-green"></span> {{ 'COCKPIT.STAT_DEALS' | translate }}</div>
+                <div class="stat-value">18 <span class="trend-badge">+15%</span></div>
+              </div>
+            </div>
+
+            <div class="workspace-grid">
+              <div class="meetings-summary">
+                <h4>{{ 'COCKPIT.MEETINGS_SUMMARY' | translate }}</h4>
+                <p class="subtitle-text">{{ 'COCKPIT.MEETINGS_SUBTITLE' | translate }}</p>
+                
+                <div class="progress-item">
+                  <span>{{ 'COCKPIT.PROG_DISCOVERY' | translate }}</span>
+                  <div class="progress-bar-container"><div class="progress-fill blue-fill" style="width: 68%;"></div></div>
+                  <span class="percentage">68%</span>
+                </div>
+                <div class="progress-item">
+                  <span>{{ 'COCKPIT.PROG_WMS' | translate }}</span>
+                  <div class="progress-bar-container"><div class="progress-fill green-fill" style="width: 82%;"></div></div>
+                  <span class="percentage">82%</span>
+                </div>
+                <div class="progress-item">
+                  <span>{{ 'COCKPIT.PROG_YMS' | translate }}</span>
+                  <div class="progress-bar-container"><div class="progress-fill blue-fill" style="width: 54%;"></div></div>
+                  <span class="percentage">54%</span>
+                </div>
+                <div class="progress-item">
+                  <span>{{ 'COCKPIT.PROG_EXPANSION' | translate }}</span>
+                  <div class="progress-bar-container"><div class="progress-fill green-fill" style="width: 74%;"></div></div>
+                  <span class="percentage">74%</span>
+                </div>
+              </div>
+
+              <div class="right-panel">
+                <div class="opportunity-score">
+                  <h4>{{ 'COCKPIT.OPP_SCORE' | translate }}</h4>
+                  <div class="score-value">82/100</div>
+                </div>
+
+                <div class="key-insight">
+                  <h4>{{ 'COCKPIT.KEY_INSIGHT' | translate }}</h4>
+                  <p>{{ 'COCKPIT.KEY_INSIGHT_DESC' | translate }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <p class="footer-text">
-      {{ 'COCKPIT.FOOTER_TEXT' | translate }}
-    </p>
-  </div>
-
-  <!-- Right Column: Revenue Workspace -->
-  <div class="workspace-section">
-    <div class="workspace-card">
-      
-      <div class="workspace-header">
-        <h3>{{ 'COCKPIT.WORKSPACE_TITLE' | translate }}</h3>
-        <span class="badge-live">{{ 'COCKPIT.BADGE_LIVE' | translate }}</span>
-      </div>
-
-      <div class="stats-row">
-        <div class="stat-box">
-          <div class="stat-label"><span class="dot-green"></span> {{ 'COCKPIT.STAT_HOURS' | translate }}</div>
-          <div class="stat-value">64h <span class="trend-badge">+72%</span></div>
+    <!-- SLIDE 2: Commercial Cockpit -->
+    <div class="slide-page slide-light">
+      <div class="cockpit-commercial-container">
+        
+        <!-- Header -->
+        <div class="comm-header">
+          <div class="comm-title-box">
+            <h1 class="comm-title">{{ 'COCKPIT.COCKPIT_COMERCIAL_TITLE' | translate }}</h1>
+            <h2 class="comm-subtitle">{{ 'COCKPIT.COCKPIT_COMERCIAL_SUBTITLE' | translate }}</h2>
+          </div>
         </div>
-        <div class="stat-box">
-          <div class="stat-label"><span class="dot-blue"></span> {{ 'COCKPIT.STAT_FOLLOWUPS' | translate }}</div>
-          <div class="stat-value">92 <span class="trend-badge badge-blue">+31%</span></div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-label"><span class="dot-green"></span> {{ 'COCKPIT.STAT_DEALS' | translate }}</div>
-          <div class="stat-value">18 <span class="trend-badge">+15%</span></div>
-        </div>
-      </div>
 
-      <div class="workspace-grid">
-        <div class="meetings-summary">
-          <h4>{{ 'COCKPIT.MEETINGS_SUMMARY' | translate }}</h4>
-          <p class="subtitle-text">{{ 'COCKPIT.MEETINGS_SUBTITLE' | translate }}</p>
+        <!-- Metrics Row -->
+        <div class="comm-metrics">
+          <div class="metric-card">
+             <div class="metric-head"><span class="dot-green"></span> {{ 'COCKPIT.COCKPIT_METRIC1_TITLE' | translate }}</div>
+             <div class="metric-val">84/100 <span class="badge-green">+12%</span></div>
+          </div>
+          <div class="metric-card">
+             <div class="metric-head"><span class="dot-blue"></span> {{ 'COCKPIT.COCKPIT_METRIC2_TITLE' | translate }}</div>
+             <div class="metric-val">27 <span class="badge-blue">+8</span></div>
+          </div>
+          <div class="metric-card">
+             <div class="metric-head"><span class="dot-green"></span> {{ 'COCKPIT.COCKPIT_METRIC3_TITLE' | translate }}</div>
+             <div class="metric-val">93% <span class="badge-green">+11%</span></div>
+          </div>
+          <div class="metric-card">
+             <div class="metric-head"><span class="dot-orange"></span> {{ 'COCKPIT.COCKPIT_METRIC4_TITLE' | translate }}</div>
+             <div class="metric-val">46h <span class="badge-orange">-70%</span></div>
+          </div>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="comm-main">
           
-          <div class="progress-item">
-            <span>Discovery</span>
-            <div class="progress-bar-container">
-              <div class="progress-fill blue-fill" style="width: 68%;"></div>
+          <!-- Chart Placeholder (Evolução do pipeline) -->
+          <div class="chart-card">
+            <h3>{{ 'COCKPIT.COCKPIT_CHART_TITLE' | translate }}</h3>
+            <p>{{ 'COCKPIT.COCKPIT_CHART_SUBTITLE' | translate }}</p>
+            
+            <div class="chart-area">
+              <!-- Visual placeholder for the chart using simple CSS lines/dots -->
+              <div class="chart-mock">
+                <!-- X Axis Labels -->
+                <div class="chart-y-axis">
+                  <span>100</span>
+                  <span>75</span>
+                  <span>50</span>
+                  <span>25</span>
+                  <span>0</span>
+                </div>
+                <div class="chart-content">
+                  <!-- Decorative grid lines -->
+                  <div class="grid-line" style="bottom: 0%"></div>
+                  <div class="grid-line" style="bottom: 25%"></div>
+                  <div class="grid-line" style="bottom: 50%"></div>
+                  <div class="grid-line" style="bottom: 75%"></div>
+                  <div class="grid-line" style="bottom: 100%"></div>
+                  
+                  <!-- Green Line (Follow-up no prazo) — starts ~60, rises to ~95 -->
+                  <svg class="chart-svg" viewBox="0 0 500 200" preserveAspectRatio="none">
+                    <polyline points="0,80 100,56 200,50 300,40 400,26 500,10" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+                    <circle cx="0" cy="80" r="4" fill="#10B981"/>
+                    <circle cx="100" cy="56" r="4" fill="#10B981"/>
+                    <circle cx="200" cy="50" r="4" fill="#10B981"/>
+                    <circle cx="300" cy="40" r="4" fill="#10B981"/>
+                    <circle cx="400" cy="26" r="4" fill="#10B981"/>
+                    <circle cx="500" cy="10" r="4" fill="#10B981"/>
+                    
+                    <!-- Blue Line (Deals priorizados) — starts ~5, rises to ~20 -->
+                    <polyline points="0,190 100,180 200,184 300,174 400,166 500,160" fill="none" stroke="#3B82F6" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+                    <circle cx="0" cy="190" r="4" fill="#3B82F6"/>
+                    <circle cx="100" cy="180" r="4" fill="#3B82F6"/>
+                    <circle cx="200" cy="184" r="4" fill="#3B82F6"/>
+                    <circle cx="300" cy="174" r="4" fill="#3B82F6"/>
+                    <circle cx="400" cy="166" r="4" fill="#3B82F6"/>
+                    <circle cx="500" cy="160" r="4" fill="#3B82F6"/>
+                  </svg>
+                  
+                  <!-- X Axis Labels -->
+                  <div class="chart-x-axis">
+                    <span>S1</span>
+                    <span>S2</span>
+                    <span>S3</span>
+                    <span>S4</span>
+                    <span>S5</span>
+                    <span>S6</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <span class="percentage">68%</span>
+
+            <div class="chart-legend">
+              <span class="legend-item"><span class="dot-blue"></span> {{ 'COCKPIT.COCKPIT_CHART_LEGEND1' | translate }}</span>
+              <span class="legend-item"><span class="dot-green"></span> {{ 'COCKPIT.COCKPIT_CHART_LEGEND2' | translate }}</span>
+            </div>
           </div>
-          <div class="progress-item">
-            <span>WMS</span>
-            <div class="progress-bar-container">
-              <div class="progress-fill green-fill" style="width: 82%;"></div>
+
+          <!-- Actions & Deals Column -->
+          <div class="comm-actions-col">
+            
+            <!-- Best Actions -->
+            <div class="actions-card">
+              <h3>{{ 'COCKPIT.COCKPIT_ACTIONS_TITLE' | translate }}</h3>
+              <p>{{ 'COCKPIT.COCKPIT_ACTIONS_SUBTITLE' | translate }}</p>
+              <ul class="actions-list">
+                <li><span class="dot-green"></span> {{ 'COCKPIT.COCKPIT_ACTION1' | translate }}</li>
+                <li><span class="dot-green"></span> {{ 'COCKPIT.COCKPIT_ACTION2' | translate }}</li>
+              </ul>
             </div>
-            <span class="percentage">82%</span>
-          </div>
-          <div class="progress-item">
-            <span>YMS</span>
-            <div class="progress-bar-container">
-              <div class="progress-fill blue-fill" style="width: 54%;"></div>
+            
+            <!-- Priority Deals -->
+            <div class="deals-card">
+              <h3>{{ 'COCKPIT.COCKPIT_DEALS_TITLE' | translate }}</h3>
+              <p>{{ 'COCKPIT.COCKPIT_DEALS_SUBTITLE' | translate }}</p>
+              <table class="deals-table">
+                <thead>
+                  <tr>
+                    <th>{{ 'COCKPIT.COCKPIT_DEALS_COL1' | translate }}</th>
+                    <th>{{ 'COCKPIT.COCKPIT_DEALS_COL2' | translate }}</th>
+                    <th>{{ 'COCKPIT.COCKPIT_DEALS_COL3' | translate }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>{{ 'COCKPIT.COCKPIT_DEAL1_NAME' | translate }}</strong></td>
+                    <td><span class="score-badge score-green">82</span></td>
+                    <td>{{ 'COCKPIT.COCKPIT_DEAL1_STEP' | translate }}</td>
+                  </tr>
+                  <tr>
+                    <td><strong>{{ 'COCKPIT.COCKPIT_DEAL2_NAME' | translate }}</strong></td>
+                    <td><span class="score-badge score-blue">76</span></td>
+                    <td>{{ 'COCKPIT.COCKPIT_DEAL2_STEP' | translate }}</td>
+                  </tr>
+                  <tr>
+                    <td><strong>{{ 'COCKPIT.COCKPIT_DEAL3_NAME' | translate }}</strong></td>
+                    <td><span class="score-badge score-orange">69</span></td>
+                    <td>{{ 'COCKPIT.COCKPIT_DEAL3_STEP' | translate }}</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <span class="percentage">54%</span>
-          </div>
-          <div class="progress-item">
-            <span>{{ 'COCKPIT.PROG_EXPANSION' | translate }}</span>
-            <div class="progress-bar-container">
-              <div class="progress-fill green-fill" style="width: 74%;"></div>
-            </div>
-            <span class="percentage">74%</span>
           </div>
         </div>
 
-        <div class="right-panel">
-          <div class="opportunity-score">
-            <h4>{{ 'COCKPIT.OPP_SCORE' | translate }}</h4>
-            <div class="score-value">82/100</div>
-          </div>
-
-          <div class="key-insight">
-            <h4>{{ 'COCKPIT.KEY_INSIGHT' | translate }}</h4>
-            <p>Cada <strong>reunião vira ação objetiva.</strong></p>
-          </div>
+        <!-- Bottom Banner -->
+        <div class="comm-banner">
+          <p><strong>{{ 'COCKPIT.COCKPIT_BOTTOM_BANNER' | translate }}</strong></p>
+          <button class="btn-blue-solid">{{ 'COCKPIT.COCKPIT_BTN_CRM' | translate }}</button>
         </div>
+
       </div>
-
     </div>
+
   </div>
 
+  <!-- Discrete Slider Controls -->
+  <div class="slider-controls">
+    <button class="dot" [class.active]="currentSlide === 0" (click)="setSlide(0)"></button>
+    <button class="dot" [class.active]="currentSlide === 1" (click)="setSlide(1)"></button>
+  </div>
 </div>

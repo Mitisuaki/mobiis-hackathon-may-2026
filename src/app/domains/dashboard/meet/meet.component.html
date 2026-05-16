@@ -1,0 +1,129 @@
+<div class="meet-intel-container">
+
+  <!-- Header -->
+  <div class="meet-header">
+    <h1 class="meet-title">{{ 'MEET.TITLE' | translate }}</h1>
+    <p class="meet-subtitle">{{ 'MEET.SUBTITLE' | translate }}</p>
+  </div>
+
+  <!-- Main Grid -->
+  <div class="meet-grid">
+
+    <!-- LEFT COLUMN -->
+    <div class="meet-left">
+      <!-- Main Left Card -->
+      <div class="meet-card main-left-card">
+        
+        <div class="card-header-row">
+          <div>
+            <h3>{{ 'MEET.TRANSCRIPT_TITLE' | translate }}</h3>
+            <p class="card-sub">{{ 'MEET.TRANSCRIPT_SUB' | translate }}</p>
+          </div>
+          <span class="duration-badge">62 min</span>
+        </div>
+
+        <blockquote class="transcription-quote">
+          {{ 'MEET.TRANSCRIPT_QUOTE' | translate }}
+        </blockquote>
+
+        <div class="tag-row">
+          <span class="tag tag-green">{{ 'MEET.TAG_PAIN' | translate }}</span>
+          <span class="tag tag-blue">{{ 'MEET.TAG_ERP' | translate }}</span>
+          <span class="tag tag-orange">{{ 'MEET.TAG_PRIORITY' | translate }}</span>
+        </div>
+
+        <!-- Nested Executive Summary -->
+        <div class="inner-summary-box">
+          <h3>{{ 'MEET.SUMMARY_TITLE' | translate }}</h3>
+          <ul class="summary-list">
+            <li><span class="dot-green"></span> <span class="summary-text">{{ 'MEET.SUMMARY_BULLET1' | translate }}</span></li>
+            <li><span class="dot-green"></span> <span class="summary-text">{{ 'MEET.SUMMARY_BULLET2' | translate }}</span></li>
+            <li><span class="dot-green"></span> <span class="summary-text">{{ 'MEET.SUMMARY_BULLET3' | translate }}</span></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="meet-right">
+
+      <!-- Auto Diagnosis Card -->
+      <div class="meet-card diagnosis-card">
+        <h3>{{ 'MEET.DIAGNOSIS_TITLE' | translate }}</h3>
+        <p class="card-sub">{{ 'MEET.DIAGNOSIS_SUB' | translate }}</p>
+        <p class="diagnosis-desc">{{ 'MEET.DIAGNOSIS_DESC' | translate }}</p>
+      </div>
+
+      <!-- BANT + SPIN Row -->
+      <div class="frameworks-row">
+
+        <!-- BANT -->
+        <div class="meet-card framework-card">
+          <h3>BANT</h3>
+          <table class="framework-table">
+            <tr>
+              <td class="fw-label">Budget</td>
+              <td class="fw-value">{{ 'MEET.BANT_BUDGET_VAL' | translate }}</td>
+            </tr>
+            <tr>
+              <td class="fw-label">Authority</td>
+              <td class="fw-value">{{ 'MEET.BANT_AUTH_VAL' | translate }}</td>
+            </tr>
+            <tr>
+              <td class="fw-label">Need</td>
+              <td class="fw-value">{{ 'MEET.BANT_NEED_VAL' | translate }}</td>
+            </tr>
+            <tr>
+              <td class="fw-label">Timing</td>
+              <td class="fw-value">{{ 'MEET.BANT_TIME_VAL' | translate }}</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- SPIN -->
+        <div class="meet-card framework-card">
+          <h3>SPIN</h3>
+          <div class="spin-list">
+            <div class="spin-item">
+              <span class="spin-badge spin-s">S</span>
+              <span>{{ 'MEET.SPIN_S_VAL' | translate }}</span>
+            </div>
+            <div class="spin-item">
+              <span class="spin-badge spin-p">P</span>
+              <span>{{ 'MEET.SPIN_P_VAL' | translate }}</span>
+            </div>
+            <div class="spin-item">
+              <span class="spin-badge spin-i">I</span>
+              <span>{{ 'MEET.SPIN_I_VAL' | translate }}</span>
+            </div>
+            <div class="spin-item">
+              <span class="spin-badge spin-n">N</span>
+              <span>{{ 'MEET.SPIN_N_VAL' | translate }}</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Suggested Actions Card -->
+      <div class="meet-card actions-card">
+        <div class="actions-content">
+          <div class="actions-left-group">
+            <h3>{{ 'MEET.ACTIONS_TITLE' | translate }}</h3>
+            <ul class="actions-list">
+              <li><span class="dot-green"></span> <span>{{ 'MEET.ACTION_1' | translate }}</span></li>
+              <li><span class="dot-green"></span> <span>{{ 'MEET.ACTION_2' | translate }}</span></li>
+            </ul>
+          </div>
+          <div class="actions-buttons">
+            <button class="btn-analyze">{{ 'MEET.BTN_ANALYZE' | translate }}</button>
+            <button class="btn-crm">{{ 'MEET.BTN_SEND_CRM' | translate }}</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
