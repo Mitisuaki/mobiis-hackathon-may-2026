@@ -1,13 +1,74 @@
+/* Page Slider Wrappers */
+.page-slider-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  user-select: none; /* easier dragging */
+}
+
+.slider-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.slide-page {
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  overflow-y: auto;
+}
+
+.slide-dark {
+  /* Inherits dark theme from main container */
+}
+
+.slide-light {
+  background-color: #F8FAFC;
+  color: #0F172A;
+}
+
+/* ============================================================== */
+/* SLIDE 1: ORIGINAL COCKPIT CONTAINER                            */
+/* ============================================================== */
 .cockpit-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 5rem;
   height: 100%;
+  width: 100%;
   align-items: center;
-  padding: 1rem;
+  padding: 1rem 3rem 3rem 3rem;
 }
 
-/* Left Column Styles */
+/* Original Slide 1 Controls fixed at bottom */
+.slider-controls {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.75rem;
+  z-index: 10;
+}
+
+.slider-controls .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(120, 120, 120, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.slider-controls .dot.active {
+  background-color: var(--color-success);
+}
+
+/* Slide 1 Left Column */
 .hero-section {
   display: flex;
   flex-direction: column;
@@ -84,6 +145,8 @@
   font-weight: 600;
   font-size: 1rem;
   transition: opacity 0.2s;
+  border: none;
+  cursor: pointer;
 }
 
 .btn-blue {
@@ -94,6 +157,8 @@
   font-weight: 600;
   font-size: 1rem;
   transition: opacity 0.2s;
+  border: none;
+  cursor: pointer;
 }
 
 .btn-green:hover, .btn-blue:hover {
@@ -106,13 +171,15 @@
   color: var(--color-text-secondary);
 }
 
-/* Right Column Styles */
+/* Slide 1 Right Column */
 .workspace-section {
   background-color: var(--color-card-bg);
   border: 1px solid var(--color-border);
   border-radius: 24px;
   padding: 2rem;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
 }
 
 .workspace-card {
@@ -171,8 +238,9 @@
   gap: 0.5rem;
 }
 
-.dot-green { width: 8px; height: 8px; background-color: var(--color-success); border-radius: 50%; }
-.dot-blue { width: 8px; height: 8px; background-color: var(--color-accent-blue); border-radius: 50%; }
+.dot-green { width: 8px; height: 8px; background-color: var(--color-success); border-radius: 50%; display: inline-block; }
+.dot-blue { width: 8px; height: 8px; background-color: var(--color-accent-blue); border-radius: 50%; display: inline-block; }
+.dot-orange { width: 8px; height: 8px; background-color: #F59E0B; border-radius: 50%; display: inline-block; }
 
 .stat-value {
   font-size: 2rem;
@@ -266,15 +334,15 @@
   gap: 1rem;
 }
 
-.opportunity-score {
-  background-color: rgba(37, 99, 235, 0.05);
+.opportunity-score, .key-insight {
   border: 1px solid var(--color-border);
   padding: 1.5rem;
   border-radius: 16px;
-  text-align: center;
 }
+.opportunity-score { background-color: rgba(37, 99, 235, 0.05); text-align: center; }
+.key-insight { background-color: rgba(0, 255, 102, 0.05); }
 
-.opportunity-score h4 {
+.opportunity-score h4, .key-insight h4 {
   margin: 0 0 0.5rem 0;
   color: var(--color-text-secondary);
   font-size: 0.875rem;
@@ -286,30 +354,357 @@
   color: var(--color-text-primary);
 }
 
-.key-insight {
-  background-color: rgba(0, 255, 102, 0.05);
-  border: 1px solid var(--color-border);
-  padding: 1.5rem;
-  border-radius: 16px;
-}
-
-.key-insight h4 {
-  margin: 0 0 0.5rem 0;
-  color: var(--color-text-secondary);
-  font-size: 0.875rem;
-}
-
 .key-insight p {
   margin: 0;
   color: var(--color-text-primary);
   font-size: 0.95rem;
 }
 
+/* ============================================================== */
+/* SLIDE 2: COMMERCIAL COCKPIT (LIGHT THEME)                      */
+/* ============================================================== */
+.cockpit-commercial-container {
+  width: 100%;
+  height: 100%;
+  padding: 2rem 3rem 4rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Header */
+.comm-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comm-title-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.comm-title {
+  margin: 0;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.comm-subtitle {
+  margin: 0;
+  font-size: 1rem;
+  color: #64748B;
+  font-weight: 500;
+}
+
+.comm-user-box {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.comm-search {
+  padding: 0.75rem 1rem;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  outline: none;
+  width: 250px;
+  background-color: #FFF;
+  color: #333;
+}
+
+.comm-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: #FFF;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #E2E8F0;
+}
+
+.profile-icon {
+  width: 32px;
+  height: 32px;
+  background-color: #3B82F6;
+  color: #FFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #0F172A;
+}
+
+.profile-role {
+  font-size: 0.75rem;
+  color: #64748B;
+}
+
+/* Metrics */
+.comm-metrics {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.metric-card {
+  flex: 1;
+  background-color: #FFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.metric-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #64748B;
+  font-weight: 500;
+}
+
+.metric-val {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0F172A;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.badge-green { font-size: 0.75rem; padding: 0.2rem 0.5rem; border-radius: 4px; background-color: #DCFCE7; color: #16A34A; }
+.badge-blue { font-size: 0.75rem; padding: 0.2rem 0.5rem; border-radius: 4px; background-color: #DBEAFE; color: #2563EB; }
+.badge-orange { font-size: 0.75rem; padding: 0.2rem 0.5rem; border-radius: 4px; background-color: #FFEDD5; color: #EA580C; }
+
+/* Main Grid */
+.comm-main {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 1.5rem;
+}
+
+.chart-card, .actions-card, .deals-card {
+  background-color: #FFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.chart-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.chart-card h3, .actions-card h3, .deals-card h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: #0F172A;
+}
+
+.chart-card p, .actions-card p, .deals-card p {
+  margin: 0 0 1rem 0;
+  font-size: 0.85rem;
+  color: #64748B;
+}
+
+/* Chart Area Placeholder */
+.chart-area {
+  flex: 1;
+  min-height: 250px;
+  position: relative;
+  margin-top: 1rem;
+}
+
+.chart-mock {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  padding-left: 30px;
+  padding-bottom: 30px;
+}
+
+.chart-y-axis {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: #94A3B8;
+  width: 25px;
+  text-align: right;
+}
+
+.chart-content {
+  position: absolute;
+  left: 30px;
+  top: 0;
+  right: 0;
+  bottom: 30px;
+}
+
+.grid-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #F1F5F9;
+}
+
+.chart-svg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  overflow: visible;
+}
+
+.chart-x-axis {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -25px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: #94A3B8;
+}
+
+.chart-legend {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  justify-content: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #475569;
+}
+
+/* Actions & Deals */
+.comm-actions-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.actions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.actions-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: #1E293B;
+  line-height: 1.4;
+}
+
+.actions-list .dot-green {
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.deals-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.deals-table th {
+  text-align: left;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #94A3B8;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.deals-table td {
+  padding: 0.75rem 0;
+  font-size: 0.9rem;
+  color: #1E293B;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.deals-table tr:last-child td {
+  border-bottom: none;
+}
+
+.score-badge {
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.score-green { background-color: #DCFCE7; color: #16A34A; }
+.score-blue { background-color: #DBEAFE; color: #2563EB; }
+.score-orange { background-color: #FFEDD5; color: #EA580C; }
+
+/* Banner */
+.comm-banner {
+  background-color: #FFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 1.25rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.comm-banner p {
+  margin: 0;
+  color: #0F172A;
+  font-size: 1rem;
+}
+
+.btn-blue-solid {
+  background-color: #2563EB;
+  color: #FFF;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-blue-solid:hover {
+  opacity: 0.9;
+}
+
 @media (max-width: 1100px) {
-  .cockpit-container {
-    grid-template-columns: 1fr;
-  }
-  .workspace-grid {
+  .cockpit-container, .comm-main {
     grid-template-columns: 1fr;
   }
 }
