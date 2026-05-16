@@ -70,7 +70,17 @@ export const en = {
     BENEFIT2_TITLE: 'Accuracy',
     BENEFIT2_DESC: 'Automatic extraction of pain points and needs with a high success rate based on advanced NLP.',
     BENEFIT3_TITLE: 'Conversion',
-    BENEFIT3_DESC: 'Personalized proposals increase the closing rate and reduce sales cycles.'
+    BENEFIT3_DESC: 'Personalized proposals increase the closing rate and reduce sales cycles.',
+    SEARCH_PLACEHOLDER: 'Search meeting by subject...',
+    LOADING_MEETINGS: 'Loading meetings...',
+    LOADING_TRANSCRIPT: 'Loading transcript...',
+    NO_MEETINGS: 'No meetings found.',
+    GENERATE_PROPOSAL: 'Generate AI Proposal',
+    GENERATING: 'Generating proposal...',
+    SUMMARY: 'Meeting Summary',
+    SENTIMENT: 'Client Sentiment',
+    PROBLEMS_IDENTIFIED: 'Problems Identified',
+    ACTIONS_RECOMMENDED: 'Recommended Actions'
   },
   HEALTH: {
     BREADCRUMB: 'MOBIIS • CUSTOMER SUCCESS INTELLIGENCE',

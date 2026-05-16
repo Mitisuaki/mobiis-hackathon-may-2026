@@ -70,7 +70,17 @@ export const es = {
     BENEFIT2_TITLE: 'Precisión',
     BENEFIT2_DESC: 'Extracción automática de dolores y necesidades con alta tasa de éxito basada en PNL avanzada.',
     BENEFIT3_TITLE: 'Conversión',
-    BENEFIT3_DESC: 'Las propuestas personalizadas aumentan la tasa de cierre y reducen los ciclos de ventas.'
+    BENEFIT3_DESC: 'Las propuestas personalizadas aumentan la tasa de cierre y reducen los ciclos de ventas.',
+    SEARCH_PLACEHOLDER: 'Buscar reunión por asunto...',
+    LOADING_MEETINGS: 'Cargando reuniones...',
+    LOADING_TRANSCRIPT: 'Cargando transcripción...',
+    NO_MEETINGS: 'No se encontraron reuniones.',
+    GENERATE_PROPOSAL: 'Generar Propuesta IA',
+    GENERATING: 'Generando propuesta...',
+    SUMMARY: 'Resumen de la Reunión',
+    SENTIMENT: 'Sentimiento del Cliente',
+    PROBLEMS_IDENTIFIED: 'Problemas Identificados',
+    ACTIONS_RECOMMENDED: 'Acciones Recomendadas'
   },
   HEALTH: {
     BREADCRUMB: 'MOBIIS • CUSTOMER SUCCESS INTELLIGENCE',

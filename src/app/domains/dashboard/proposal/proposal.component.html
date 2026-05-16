@@ -1,169 +1,286 @@
 <div class="proposal-wrapper">
 
-  <!-- Selector Bar -->
+  <!-- Header -->
   <div class="selector-bar">
     <div class="selector-left">
       <h2>{{ 'PROPOSAL.TITLE' | translate }}</h2>
       <p>{{ 'PROPOSAL.SUBTITLE' | translate }}</p>
     </div>
     <div class="selector-right">
-      <select class="negotiation-select" (change)="selectNegotiation($event)">
-        <option *ngFor="let n of negotiations; let i = index" [value]="i">
-          {{ n.client }} — {{ n.product }} ({{ n.date }})
-        </option>
-      </select>
+      <input
+        type="text"
+        class="search-input"
+        [(ngModel)]="searchValue"
+        (ngModelChange)="onSearchChange($event)"
+        [placeholder]="'PROPOSAL.SEARCH_PLACEHOLDER' | translate"
+      />
     </div>
   </div>
 
-  <!-- Status Badge -->
-  <div class="status-row">
-    <span class="status-badge" [class.approved]="selected.status === 'Aprovada'"
-      [class.pending]="selected.status === 'Pendente'"
-      [class.review]="selected.status === 'Em revisão'">
-      {{ selected.status }}
-    </span>
-    <span class="client-name">{{ selected.client }}</span>
-    <span class="product-tag">{{ selected.product }}</span>
-  </div>
+  <!-- Meetings List -->
+  <div *ngIf="loadingMeetings()" class="loading">{{ 'PROPOSAL.LOADING_MEETINGS' | translate }}</div>
+  <div *ngIf="errorMeetings()" class="error">{{ errorMeetings() }}</div>
 
-  <!-- Stats Cards -->
-  <div class="stats-grid">
-    <div class="stat-card">
-      <div class="stat-number">{{ selected.accuracy }}<span class="stat-unit">%</span></div>
-      <div class="stat-label">{{ 'PROPOSAL.ACCURACY' | translate }}</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-number">{{ selected.genTime }}<span class="stat-unit">min</span></div>
-      <div class="stat-label">{{ 'PROPOSAL.GEN_TIME' | translate }}</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-number">{{ selected.savings }}<span class="stat-unit">%</span></div>
-      <div class="stat-label">{{ 'PROPOSAL.TIME_SAVINGS' | translate }}</div>
-    </div>
-    <div class="stat-card accent">
-      <div class="stat-number">{{ selected.approvalRate }}<span class="stat-unit">%</span></div>
-      <div class="stat-label">{{ 'PROPOSAL.APPROVAL_RATE' | translate }}</div>
+  <div class="meetings-row" *ngIf="!loadingMeetings() && meetings().length > 0">
+    <div
+      *ngFor="let m of meetings()"
+      class="meeting-card"
+      [class.active]="selectedMeeting()?.id === m.id"
+      (click)="selectMeeting(m)"
+    >
+      <div class="meeting-subject">{{ m.subject }}</div>
+      <div class="meeting-date">{{ formatDate(m.startDateTime) }}</div>
     </div>
   </div>
 
-  <!-- Download -->
-  <div class="download-row">
-    <div class="download-info">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-      <div>
-        <strong>Proposta_{{ selected.client.replace(' ', '_') }}.docx</strong>
-        <span>{{ 'PROPOSAL.GEN_BY_COPILOT' | translate }}</span>
-      </div>
-    </div>
-    <button class="btn-download" (click)="downloadProposal()">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-      {{ 'PROPOSAL.DOWNLOAD_DOCX' | translate }}
+  <div *ngIf="!loadingMeetings() && meetings().length === 0" class="empty">
+    {{ 'PROPOSAL.NO_MEETINGS' | translate }}
+  </div>
+
+  <!-- Selected Meeting Info -->
+  <div class="status-row" *ngIf="selectedMeeting() as meeting">
+    <span class="client-name">{{ meeting.subject }}</span>
+    <span class="product-tag">{{ formatDate(meeting.startDateTime) }}</span>
+  </div>
+
+  <!-- Transcript Loading -->
+  <div *ngIf="loadingTranscripts() || loadingContent()" class="loading">
+    {{ 'PROPOSAL.LOADING_TRANSCRIPT' | translate }}
+  </div>
+  <div *ngIf="errorTranscripts()" class="error">{{ errorTranscripts() }}</div>
+  <div *ngIf="errorContent()" class="error">{{ errorContent() }}</div>
+
+  <!-- Generate Button -->
+  <div class="generate-row" *ngIf="selectedMeeting() && transcriptContent()?.segments">
+    <button
+      class="btn-generate"
+      (click)="generateProposal()"
+      [disabled]="!canGenerate()"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+      {{ loadingProposal() ? ('PROPOSAL.GENERATING' | translate) : ('PROPOSAL.GENERATE_PROPOSAL' | translate) }}
     </button>
   </div>
 
-  <!-- Topics Identified -->
-  <div class="section-card">
-    <h3>{{ 'PROPOSAL.TOPICS_IDENTIFIED' | translate }}</h3>
-    <div class="topics-grid">
-      <div class="topic-chip" *ngFor="let t of selected.topics">{{ t }}</div>
-    </div>
-  </div>
+  <div *ngIf="loadingProposal()" class="loading">{{ 'PROPOSAL.GENERATING' | translate }}</div>
+  <div *ngIf="errorProposal()" class="error">{{ errorProposal() }}</div>
 
-  <!-- Charts Row 1 -->
-  <div class="charts-row">
-    <div class="chart-card">
-      <h3>{{ 'PROPOSAL.CHART1_TITLE' | translate }}</h3>
-      <p class="chart-sub">{{ 'PROPOSAL.CHART1_SUB' | translate }}</p>
-      <div class="bar-chart">
-        <div class="bar-group" *ngFor="let b of selected.barData">
-          <span class="bar-label">{{ b.label }}</span>
-          <div class="bars">
-            <div class="bar manual" [style.width.%]="b.manual / 60 * 100"><span>{{ b.manual }}min</span></div>
-            <div class="bar ai" [style.width.%]="b.ai / 60 * 100 + 5"><span>{{ b.ai }}min</span></div>
+  <!-- Generated Proposal -->
+  <ng-container *ngIf="proposal() as p">
+    <!-- Summary -->
+    <div class="section-card">
+      <h3>{{ 'PROPOSAL.SUMMARY' | translate }}</h3>
+      <p class="summary-text">{{ p.resumo }}</p>
+    </div>
+
+    <!-- Sentiment -->
+    <div class="section-card">
+      <h3>{{ 'PROPOSAL.SENTIMENT' | translate }}</h3>
+      <p class="sentiment-text">{{ p.sentimento }}</p>
+    </div>
+
+    <!-- Problems -->
+    <div class="section-card">
+      <h3>{{ 'PROPOSAL.PROBLEMS_IDENTIFIED' | translate }}</h3>
+      <ul class="problems-list">
+        <li *ngFor="let prob of p.problemas">{{ prob }}</li>
+      </ul>
+    </div>
+
+    <!-- Recommended Actions -->
+    <div class="section-card">
+      <h3>{{ 'PROPOSAL.ACTIONS_RECOMMENDED' | translate }}</h3>
+      <ul class="actions-list">
+        <li *ngFor="let action of p.acoesRecomendadas">{{ action }}</li>
+      </ul>
+    </div>
+
+    <!-- Topics -->
+    <div class="section-card">
+      <h3>{{ 'PROPOSAL.TOPICS_IDENTIFIED' | translate }}</h3>
+      <div class="topics-grid">
+        <div class="topic-chip" *ngFor="let t of p.topicos">{{ t }}</div>
+      </div>
+    </div>
+
+    <!-- Download -->
+    <div class="download-row">
+      <div class="download-info">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+        <div>
+          <strong>Proposta_{{ selectedMeeting()?.subject?.replace(' ', '_') || 'Reuniao' }}.docx</strong>
+          <span>{{ 'PROPOSAL.GEN_BY_COPILOT' | translate }}</span>
+        </div>
+      </div>
+      <button class="btn-download" (click)="downloadProposal()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        {{ 'PROPOSAL.DOWNLOAD_DOCX' | translate }}
+      </button>
+    </div>
+  </ng-container>
+
+  <!-- Static Info (shown when no proposal generated yet) -->
+  <ng-container *ngIf="!proposal() && !loadingProposal()">
+    <!-- Stats Cards -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">96<span class="stat-unit">%</span></div>
+        <div class="stat-label">{{ 'PROPOSAL.ACCURACY' | translate }}</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2<span class="stat-unit">min</span></div>
+        <div class="stat-label">{{ 'PROPOSAL.GEN_TIME' | translate }}</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">82<span class="stat-unit">%</span></div>
+        <div class="stat-label">{{ 'PROPOSAL.TIME_SAVINGS' | translate }}</div>
+      </div>
+      <div class="stat-card accent">
+        <div class="stat-number">91<span class="stat-unit">%</span></div>
+        <div class="stat-label">{{ 'PROPOSAL.APPROVAL_RATE' | translate }}</div>
+      </div>
+    </div>
+
+    <!-- Charts Row 1 -->
+    <div class="charts-row">
+      <div class="chart-card">
+        <h3>{{ 'PROPOSAL.CHART1_TITLE' | translate }}</h3>
+        <p class="chart-sub">{{ 'PROPOSAL.CHART1_SUB' | translate }}</p>
+        <div class="bar-chart">
+          <div class="bar-group">
+            <span class="bar-label">Discovery</span>
+            <div class="bars">
+              <div class="bar manual" style="width:75%"><span>45min</span></div>
+              <div class="bar ai" style="width:10%"><span>3min</span></div>
+            </div>
+          </div>
+          <div class="bar-group">
+            <span class="bar-label">WMS</span>
+            <div class="bars">
+              <div class="bar manual" style="width:63.3%"><span>38min</span></div>
+              <div class="bar ai" style="width:8.3%"><span>2min</span></div>
+            </div>
+          </div>
+          <div class="bar-group">
+            <span class="bar-label">TMS</span>
+            <div class="bars">
+              <div class="bar manual" style="width:70%"><span>42min</span></div>
+              <div class="bar ai" style="width:13.3%"><span>4min</span></div>
+            </div>
+          </div>
+          <div class="bar-group">
+            <span class="bar-label">Expansão</span>
+            <div class="bars">
+              <div class="bar manual" style="width:50%"><span>30min</span></div>
+              <div class="bar ai" style="width:8.3%"><span>2min</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="legend">
+          <span class="legend-item"><span class="dot-manual"></span> {{ 'PROPOSAL.MANUAL' | translate }}</span>
+          <span class="legend-item"><span class="dot-ai"></span> {{ 'PROPOSAL.AI_COPILOT' | translate }}</span>
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <h3>{{ 'PROPOSAL.CHART2_TITLE' | translate }}</h3>
+        <p class="chart-sub">{{ 'PROPOSAL.CHART2_SUB' | translate }}</p>
+        <div class="donut-container">
+          <div class="donut">
+            <svg viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="52" fill="none" stroke="var(--color-border)" stroke-width="12"/>
+              <circle cx="60" cy="60" r="52" fill="none" stroke="#1D4ED8" stroke-width="12"
+                attr.stroke-dasharray="326.7" attr.stroke-dashoffset="29.7"
+                stroke-linecap="round" transform="rotate(-90 60 60)"/>
+            </svg>
+            <div class="donut-label">91%</div>
+          </div>
+          <p class="donut-desc">{{ 'PROPOSAL.NO_REVISION_APPROVAL' | translate }}</p>
+        </div>
+        <div class="metric-rows">
+          <div class="metric-row">
+            <span>{{ 'PROPOSAL.SCOPE_CLARITY' | translate }}</span>
+            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:95%"></div></div>
+            <span class="metric-val">95%</span>
+          </div>
+          <div class="metric-row">
+            <span>{{ 'PROPOSAL.BRIEF_ADHERENCE' | translate }}</span>
+            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:90%"></div></div>
+            <span class="metric-val">90%</span>
+          </div>
+          <div class="metric-row">
+            <span>{{ 'PROPOSAL.PRICE_ASSERTIVENESS' | translate }}</span>
+            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width:84%"></div></div>
+            <span class="metric-val">84%</span>
           </div>
         </div>
       </div>
-      <div class="legend">
-        <span class="legend-item"><span class="dot-manual"></span> {{ 'PROPOSAL.MANUAL' | translate }}</span>
-        <span class="legend-item"><span class="dot-ai"></span> {{ 'PROPOSAL.AI_COPILOT' | translate }}</span>
-      </div>
     </div>
 
-    <div class="chart-card">
-      <h3>{{ 'PROPOSAL.CHART2_TITLE' | translate }}</h3>
-      <p class="chart-sub">{{ 'PROPOSAL.CHART2_SUB' | translate }}</p>
-      <div class="donut-container">
-        <div class="donut">
-          <svg viewBox="0 0 120 120">
-            <circle cx="60" cy="60" r="52" fill="none" stroke="var(--color-border)" stroke-width="12"/>
-            <circle cx="60" cy="60" r="52" fill="none" stroke="#1D4ED8" stroke-width="12"
-              [attr.stroke-dasharray]="326.7" [attr.stroke-dashoffset]="326.7 - (326.7 * selected.approvalRate / 100)"
-              stroke-linecap="round" transform="rotate(-90 60 60)"/>
-          </svg>
-          <div class="donut-label">{{ selected.approvalRate }}%</div>
-        </div>
-        <p class="donut-desc">{{ 'PROPOSAL.NO_REVISION_APPROVAL' | translate }}</p>
-      </div>
-      <div class="metric-rows">
-        <div class="metric-row">
-          <span>{{ 'PROPOSAL.SCOPE_CLARITY' | translate }}</span>
-          <div class="metric-bar-bg"><div class="metric-bar-fill" [style.width.%]="selected.scopeClarity"></div></div>
-          <span class="metric-val">{{ selected.scopeClarity }}%</span>
-        </div>
-        <div class="metric-row">
-          <span>{{ 'PROPOSAL.BRIEF_ADHERENCE' | translate }}</span>
-          <div class="metric-bar-bg"><div class="metric-bar-fill" [style.width.%]="selected.briefAdherence"></div></div>
-          <span class="metric-val">{{ selected.briefAdherence }}%</span>
-        </div>
-        <div class="metric-row">
-          <span>{{ 'PROPOSAL.PRICE_ASSERTIVENESS' | translate }}</span>
-          <div class="metric-bar-bg"><div class="metric-bar-fill" [style.width.%]="selected.priceAssertiveness"></div></div>
-          <span class="metric-val">{{ selected.priceAssertiveness }}%</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Charts Row 2 -->
-  <div class="charts-row">
-    <div class="chart-card full-width">
-      <h3>{{ 'PROPOSAL.CHART3_TITLE' | translate }}</h3>
-      <p class="chart-sub">{{ 'PROPOSAL.CHART3_SUB' | translate }}</p>
-      <div class="column-chart">
-        <div class="col-group" *ngFor="let m of selected.monthlyData">
-          <div class="col-bar-wrapper">
-            <div class="col-bar" [style.height.%]="m.count / maxMonthly * 100"></div>
+    <!-- Charts Row 2 -->
+    <div class="charts-row">
+      <div class="chart-card full-width">
+        <h3>{{ 'PROPOSAL.CHART3_TITLE' | translate }}</h3>
+        <p class="chart-sub">{{ 'PROPOSAL.CHART3_SUB' | translate }}</p>
+        <div class="column-chart">
+          <div class="col-group">
+            <div class="col-bar-wrapper"><div class="col-bar" style="height:28.6%"></div></div>
+            <span class="col-label">Jan</span>
+            <span class="col-value">12</span>
           </div>
-          <span class="col-label">{{ m.month }}</span>
-          <span class="col-value">{{ m.count }}</span>
+          <div class="col-group">
+            <div class="col-bar-wrapper"><div class="col-bar" style="height:42.9%"></div></div>
+            <span class="col-label">Fev</span>
+            <span class="col-value">18</span>
+          </div>
+          <div class="col-group">
+            <div class="col-bar-wrapper"><div class="col-bar" style="height:52.4%"></div></div>
+            <span class="col-label">Mar</span>
+            <span class="col-value">22</span>
+          </div>
+          <div class="col-group">
+            <div class="col-bar-wrapper"><div class="col-bar" style="height:66.7%"></div></div>
+            <span class="col-label">Abr</span>
+            <span class="col-value">28</span>
+          </div>
+          <div class="col-group">
+            <div class="col-bar-wrapper"><div class="col-bar" style="height:83.3%"></div></div>
+            <span class="col-label">Mai</span>
+            <span class="col-value">35</span>
+          </div>
+          <div class="col-group">
+            <div class="col-bar-wrapper"><div class="col-bar" style="height:100%"></div></div>
+            <span class="col-label">Jun</span>
+            <span class="col-value">42</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Benefit Cards -->
-  <div class="benefits-row">
-    <div class="benefit-card">
-      <div class="benefit-icon blue-bg">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+    <!-- Benefit Cards -->
+    <div class="benefits-row">
+      <div class="benefit-card">
+        <div class="benefit-icon blue-bg">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        </div>
+        <h4>{{ 'PROPOSAL.BENEFIT1_TITLE' | translate }}</h4>
+        <p>{{ 'PROPOSAL.BENEFIT1_DESC' | translate }}</p>
       </div>
-      <h4>{{ 'PROPOSAL.BENEFIT1_TITLE' | translate }}</h4>
-      <p>{{ 'PROPOSAL.BENEFIT1_DESC' | translate }}</p>
-    </div>
-    <div class="benefit-card">
-      <div class="benefit-icon green-bg">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+      <div class="benefit-card">
+        <div class="benefit-icon green-bg">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        </div>
+        <h4>{{ 'PROPOSAL.BENEFIT2_TITLE' | translate }}</h4>
+        <p>{{ 'PROPOSAL.BENEFIT2_DESC' | translate }}</p>
       </div>
-      <h4>{{ 'PROPOSAL.BENEFIT2_TITLE' | translate }}</h4>
-      <p>{{ 'PROPOSAL.BENEFIT2_DESC' | translate }}</p>
-    </div>
-    <div class="benefit-card">
-      <div class="benefit-icon orange-bg">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+      <div class="benefit-card">
+        <div class="benefit-icon orange-bg">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+        </div>
+        <h4>{{ 'PROPOSAL.BENEFIT3_TITLE' | translate }}</h4>
+        <p>{{ 'PROPOSAL.BENEFIT3_DESC' | translate }}</p>
       </div>
-      <h4>{{ 'PROPOSAL.BENEFIT3_TITLE' | translate }}</h4>
-      <p>{{ 'PROPOSAL.BENEFIT3_DESC' | translate }}</p>
     </div>
-  </div>
+  </ng-container>
 
 </div>

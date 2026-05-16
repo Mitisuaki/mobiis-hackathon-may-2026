@@ -353,8 +353,140 @@
   margin: 0;
 }
 
+/* Search Input */
+.search-input {
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-card-bg);
+  color: var(--color-text-primary);
+  font-size: 0.9rem;
+  font-family: inherit;
+  min-width: 320px;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: var(--color-accent-blue);
+}
+
+/* Meetings Row */
+.meetings-row {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.meeting-card {
+  flex: 0 0 260px;
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.meeting-card:hover {
+  border-color: var(--color-accent-blue);
+  background-color: var(--color-hover-bg);
+}
+
+.meeting-card.active {
+  border-color: var(--color-accent-blue);
+  background-color: var(--color-active-bg);
+}
+
+.meeting-subject {
+  font-weight: 600;
+  color: var(--color-text-primary);
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meeting-date {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+/* Generate Button */
+.generate-row {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-generate {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #1D4ED8;
+  color: #FFFFFF;
+  padding: 0.85rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-generate:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.btn-generate:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Proposal Content Sections */
+.summary-text, .sentiment-text {
+  color: var(--color-text-primary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.problems-list, .actions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding-left: 1.2rem;
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.problems-list li::marker {
+  color: #EF4444;
+}
+
+.actions-list li::marker {
+  color: #10B981;
+}
+
+/* Loading / Error / Empty */
+.loading, .empty {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  padding: 1rem 0;
+}
+
+.error {
+  font-size: 0.95rem;
+  color: var(--color-danger);
+  padding: 1rem 0;
+}
+
 @media (max-width: 1024px) {
   .charts-row, .benefits-row { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
   .selector-bar { flex-direction: column; align-items: flex-start; }
+  .meetings-row { flex-direction: column; }
+  .meeting-card { flex: 1; }
 }
