@@ -45,3 +45,11 @@ export interface ResumoRiscoChurn {
   clientes: number;
   percentual: number;
 }
+
+export interface RetornoN8n {
+  resumo: string,
+  problemas: string[],
+  sentimento: string,
+  acoes_recomendadas: string[],
+  topicos: string[]
+}

@@ -2,8 +2,13 @@
 
   <!-- Header -->
   <div class="meet-header">
-    <h1 class="meet-title">{{ 'MEET.TITLE' | translate }}</h1>
-    <p class="meet-subtitle">{{ 'MEET.SUBTITLE' | translate }}</p>
+    <div class="meet-header-left">
+      <h1 class="meet-title">{{ 'MEET.TITLE' | translate }}</h1>
+      <p class="meet-subtitle">{{ 'MEET.SUBTITLE' | translate }}</p>
+    </div>
+    <button class="btn-generate" (click)="generateResume()" [disabled]="isLoading">
+      {{ isLoading ? 'Gerando...' : 'Gerar Resumo da Reunião' }}
+    </button>
   </div>
 
   <!-- Main Grid -->
@@ -126,4 +131,56 @@
     </div>
 
   </div>
+
+  <!-- Generated AI Resume Section -->
+  <div class="ai-resume-section" *ngIf="aiResult">
+    <div class="meet-header" style="margin-top: 1.5rem;">
+      <h1 class="meet-title">Resumo da Reunião (IA)</h1>
+      <p class="meet-subtitle">Inteligência gerada automaticamente</p>
+    </div>
+
+    <div class="meet-grid">
+      <div class="meet-left">
+        <!-- Resume -->
+        <div class="meet-card main-left-card">
+          <h3>Resumo</h3>
+          <blockquote class="transcription-quote">
+            {{ aiResult.resumo }}
+          </blockquote>
+
+          <div class="tag-row" style="margin-top: 1.5rem;">
+            <span class="tag tag-blue" *ngFor="let topico of aiResult?.topicos || []">{{ topico }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="meet-right">
+        <!-- Sentiment & Problems -->
+        <div class="meet-card framework-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <h3>Problemas Identificados</h3>
+            <span class="tag tag-orange">{{ aiResult.sentimento }}</span>
+          </div>
+          <ul class="actions-list">
+            <li *ngFor="let problema of aiResult?.problemas || []">
+              <span class="dot-green" style="background-color: #EF4444;"></span> <span>{{ problema }}</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Recommended Actions -->
+        <div class="meet-card actions-card" style="margin-top: 1.25rem;">
+          <div class="actions-left-group">
+            <h3>Ações Recomendadas</h3>
+            <ul class="actions-list">
+              <li *ngFor="let acao of aiResult?.acoes_recomendadas || []">
+                <span class="dot-green"></span> <span>{{ acao }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

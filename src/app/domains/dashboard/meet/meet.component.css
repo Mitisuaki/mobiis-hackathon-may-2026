@@ -8,14 +8,45 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 /* Header */
 .meet-header {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.meet-header-left {
+  display: flex;
   flex-direction: column;
   gap: 0.15rem;
+}
+
+.btn-generate {
+  background-color: #8B5CF6; /* Purple accent */
+  color: #FFF;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
+}
+
+.btn-generate:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn-generate:disabled {
+  background-color: #A78BFA;
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 
 .meet-title {
