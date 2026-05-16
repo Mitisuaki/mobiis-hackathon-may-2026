@@ -72,6 +72,18 @@ export const es = {
     BENEFIT3_TITLE: 'Conversión',
     BENEFIT3_DESC: 'Las propuestas personalizadas aumentan la tasa de cierre y reducen los ciclos de ventas.'
   },
+  MEET: {
+    TITLE: 'Reuniones',
+    SEARCH_PLACEHOLDER: 'Buscar por asunto...',
+    MEETINGS: 'Reuniones',
+    NO_MEETINGS: 'No se encontraron reuniones.',
+    TRANSCRIPTS: 'Transcripciones',
+    NO_TRANSCRIPTS: 'No hay transcripciones disponibles.',
+    SELECT_MEETING: 'Seleccione una reunión',
+    CONTENT: 'Contenido',
+    BACK: 'Volver',
+    LOADING: 'Cargando...'
+  },
   HEALTH: {
     BREADCRUMB: 'MOBIIS • CUSTOMER SUCCESS INTELLIGENCE',
     BASE_BADGE: 'BASE CORREGIDA: 619 TICKETS',

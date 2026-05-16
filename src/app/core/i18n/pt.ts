@@ -72,6 +72,18 @@ export const pt = {
     BENEFIT3_TITLE: 'Conversão',
     BENEFIT3_DESC: 'Propostas personalizadas aumentam a taxa de fechamento e reduzem ciclos de venda.'
   },
+  MEET: {
+    TITLE: 'Reuniões',
+    SEARCH_PLACEHOLDER: 'Buscar por assunto...',
+    MEETINGS: 'Reuniões',
+    NO_MEETINGS: 'Nenhuma reunião encontrada.',
+    TRANSCRIPTS: 'Transcrições',
+    NO_TRANSCRIPTS: 'Nenhuma transcrição disponível.',
+    SELECT_MEETING: 'Selecione uma reunião',
+    CONTENT: 'Conteúdo',
+    BACK: 'Voltar',
+    LOADING: 'Carregando...'
+  },
   HEALTH: {
     BREADCRUMB: 'MOBIIS • CUSTOMER SUCCESS INTELLIGENCE',
     BASE_BADGE: 'BASE CORRIGIDA: 619 CHAMADOS',

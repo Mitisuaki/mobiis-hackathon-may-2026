@@ -6,6 +6,7 @@ import { HomeComponent } from './domains/dashboard/home/home.component';
 import { PlaceholderComponent } from './domains/dashboard/placeholder/placeholder.component';
 import { ProposalComponent } from './domains/dashboard/proposal/proposal.component';
 import { HealthComponent } from './domains/dashboard/health/health.component';
+import { MeetComponent } from './domains/dashboard/meet/meet.component';
 import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
@@ -17,7 +18,7 @@ export const routes: Routes = [
     children: [
       { path: 'home', component: HomeComponent },
       { path: 'cockpit', component: CockpitComponent },
-      { path: 'meet', component: PlaceholderComponent },
+      { path: 'meet', component: MeetComponent },
       { path: 'crm', component: PlaceholderComponent },
       { path: 'health', component: HealthComponent },
       { path: 'desk', component: PlaceholderComponent },
