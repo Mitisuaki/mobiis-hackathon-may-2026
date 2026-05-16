@@ -7,6 +7,7 @@ import { PlaceholderComponent } from './domains/dashboard/placeholder/placeholde
 import { ProposalComponent } from './domains/dashboard/proposal/proposal.component';
 import { HealthComponent } from './domains/dashboard/health/health.component';
 import { MeetComponent } from './domains/dashboard/meet/meet.component';
+import { IndicadoresComponent } from './domains/dashboard/indicadores/indicadores.component';
 import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
@@ -24,6 +25,7 @@ export const routes: Routes = [
       { path: 'desk', component: PlaceholderComponent },
       { path: 'roi', component: PlaceholderComponent },
       { path: 'proposal', component: ProposalComponent },
+      { path: 'indicadores', component: IndicadoresComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '**', redirectTo: 'home' }
     ]

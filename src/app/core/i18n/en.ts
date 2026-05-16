@@ -9,7 +9,8 @@ export const en = {
     DARK_MODE: 'Dark Mode',
     LIGHT_MODE: 'Light Mode',
     LOGOUT: 'Logout',
-    PROPOSAL: 'AI Proposal'
+    PROPOSAL: 'AI Proposal',
+    INDICADORES: 'Indicators'
   },
   COCKPIT: {
     BADGE_HACKATHON: 'Hackathon AI',
@@ -83,6 +84,29 @@ export const en = {
     CONTENT: 'Content',
     BACK: 'Back',
     LOADING: 'Loading...'
+  },
+  INDICADORES: {
+    TITLE: 'Ticket Management Panel',
+    SUBTITLE: 'Churn Risk Analysis and Performance Indicators',
+    SUMMARY_TOTAL: 'Total Tickets',
+    SUMMARY_SOLUCIONADOS: 'Resolved',
+    SUMMARY_PENDENTES: 'Pending',
+    SUMMARY_TAXA: 'Resolution Rate',
+    CHURN_TITLE: 'Churn Risk Analysis by Client',
+    COL_CLIENTE: 'Client',
+    COL_TOTAL: 'Total',
+    COL_PENDENTES: 'Pending',
+    COL_PROBLEMAS: 'Problems',
+    COL_URGENTES: 'Urgent',
+    COL_SCORE: 'Score',
+    COL_CLASSIFICACAO: 'Classification',
+    STATUS_TITLE: 'Tickets by Status',
+    PROPRIETARIO_TITLE: 'Tickets by Owner',
+    CATEGORIA_TITLE: 'Tickets by Category',
+    NIVEL_TITLE: 'Tickets by Service Level',
+    RESUMO_RISCO_TITLE: 'Churn Risk Summary',
+    LOADING: 'Loading...',
+    ERROR: 'Error loading data'
   },
   HEALTH: {
     BREADCRUMB: 'MOBIIS • CUSTOMER SUCCESS INTELLIGENCE',

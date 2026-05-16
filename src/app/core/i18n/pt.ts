@@ -9,7 +9,8 @@ export const pt = {
     DARK_MODE: 'Modo Escuro',
     LIGHT_MODE: 'Modo Claro',
     LOGOUT: 'Sair',
-    PROPOSAL: 'Proposta IA'
+    PROPOSAL: 'Proposta IA',
+    INDICADORES: 'Indicadores'
   },
   COCKPIT: {
     BADGE_HACKATHON: 'Hackathon IA',
@@ -83,6 +84,29 @@ export const pt = {
     CONTENT: 'Conteúdo',
     BACK: 'Voltar',
     LOADING: 'Carregando...'
+  },
+  INDICADORES: {
+    TITLE: 'Painel de Gestão de Tickets',
+    SUBTITLE: 'Análise de Risco de Churn e Indicadores de Desempenho',
+    SUMMARY_TOTAL: 'Total de Tickets',
+    SUMMARY_SOLUCIONADOS: 'Solucionados',
+    SUMMARY_PENDENTES: 'Pendentes',
+    SUMMARY_TAXA: 'Taxa de Resolução',
+    CHURN_TITLE: 'Análise de Risco de Churn por Cliente',
+    COL_CLIENTE: 'Cliente',
+    COL_TOTAL: 'Total',
+    COL_PENDENTES: 'Pendentes',
+    COL_PROBLEMAS: 'Problemas',
+    COL_URGENTES: 'Urgentes',
+    COL_SCORE: 'Score',
+    COL_CLASSIFICACAO: 'Classificação',
+    STATUS_TITLE: 'Tickets por Status',
+    PROPRIETARIO_TITLE: 'Tickets por Proprietário',
+    CATEGORIA_TITLE: 'Tickets por Categoria',
+    NIVEL_TITLE: 'Tickets por Nível de Serviço',
+    RESUMO_RISCO_TITLE: 'Resumo de Risco de Churn',
+    LOADING: 'Carregando...',
+    ERROR: 'Erro ao carregar dados'
   },
   HEALTH: {
     BREADCRUMB: 'MOBIIS • CUSTOMER SUCCESS INTELLIGENCE',
