@@ -73,8 +73,8 @@ export class CockpitComponent {
 
   public downloadPresentation() {
     const link = document.createElement('a');
-    link.href = '/Mobiis_Revenue_Copilot_Pitch.pptx';
-    link.download = 'Mobiis_Revenue_Copilot_Pitch.pptx';
+    link.href = '/Mobiis_Proposal_Copilot_Pitch de Vendas_Banca_Hackathon.docx';
+    link.download = 'Mobiis_Proposal_Copilot_Pitch de Vendas_Banca_Hackathon.docx';
     link.click();
     link.remove();
   }
