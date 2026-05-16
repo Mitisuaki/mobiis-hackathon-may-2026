@@ -10,7 +10,7 @@ export type Language = 'en' | 'pt' | 'es';
 })
 export class TranslationService {
   private currentLang = signal<Language>('pt');
-  
+
   private translations: Record<Language, any> = {
     en,
     pt,
@@ -28,7 +28,7 @@ export class TranslationService {
   public translate(key: string): string {
     const keys = key.split('.');
     let value = this.translations[this.currentLang()];
-    
+
     for (const k of keys) {
       if (value && value[k]) {
         value = value[k];
@@ -36,7 +36,7 @@ export class TranslationService {
         return key; // return key if not found
       }
     }
-    
+
     return value as string;
   }
 }

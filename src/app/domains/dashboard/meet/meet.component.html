@@ -1,86 +1,129 @@
-<div class="meet-wrapper">
+<div class="meet-intel-container">
+
+  <!-- Header -->
   <div class="meet-header">
-    <div class="meet-title">
-      <h2>{{ 'MEET.TITLE' | translate }}</h2>
-    </div>
-    <div class="meet-search">
-      <input
-        type="text"
-        [(ngModel)]="searchValue"
-        (ngModelChange)="onSearchChange($event)"
-        [placeholder]="'MEET.SEARCH_PLACEHOLDER' | translate"
-        class="search-input"
-      />
-    </div>
+    <h1 class="meet-title">{{ 'MEET.TITLE' | translate }}</h1>
+    <p class="meet-subtitle">{{ 'MEET.SUBTITLE' | translate }}</p>
   </div>
 
-  <div class="meet-content">
-    <!-- Lista de reuniões -->
-    <div class="meetings-panel" [class.collapsed]="selectedMeeting()">
-      <div class="panel-header">
-        <h3>{{ 'MEET.MEETINGS' | translate }}</h3>
-      </div>
+  <!-- Main Grid -->
+  <div class="meet-grid">
 
-      <div *ngIf="loadingMeetings()" class="loading">{{ 'MEET.LOADING' | translate }}</div>
-      <div *ngIf="errorMeetings()" class="error">{{ errorMeetings() }}</div>
-
-      <div *ngIf="!loadingMeetings() && meetings().length === 0" class="empty">
-        {{ 'MEET.NO_MEETINGS' | translate }}
-      </div>
-
-      <div class="meetings-list">
-        <div
-          *ngFor="let m of meetings()"
-          class="meeting-item"
-          [class.active]="selectedMeeting()?.id === m.id"
-          (click)="selectMeeting(m)"
-        >
-          <div class="meeting-subject">{{ m.subject }}</div>
-          <div class="meeting-date">{{ formatDate(m.startDateTime) }}</div>
+    <!-- LEFT COLUMN -->
+    <div class="meet-left">
+      <!-- Main Left Card -->
+      <div class="meet-card main-left-card">
+        
+        <div class="card-header-row">
+          <div>
+            <h3>{{ 'MEET.TRANSCRIPT_TITLE' | translate }}</h3>
+            <p class="card-sub">{{ 'MEET.TRANSCRIPT_SUB' | translate }}</p>
+          </div>
+          <span class="duration-badge">62 min</span>
         </div>
+
+        <blockquote class="transcription-quote">
+          {{ 'MEET.TRANSCRIPT_QUOTE' | translate }}
+        </blockquote>
+
+        <div class="tag-row">
+          <span class="tag tag-green">{{ 'MEET.TAG_PAIN' | translate }}</span>
+          <span class="tag tag-blue">{{ 'MEET.TAG_ERP' | translate }}</span>
+          <span class="tag tag-orange">{{ 'MEET.TAG_PRIORITY' | translate }}</span>
+        </div>
+
+        <!-- Nested Executive Summary -->
+        <div class="inner-summary-box">
+          <h3>{{ 'MEET.SUMMARY_TITLE' | translate }}</h3>
+          <ul class="summary-list">
+            <li><span class="dot-green"></span> <span class="summary-text">{{ 'MEET.SUMMARY_BULLET1' | translate }}</span></li>
+            <li><span class="dot-green"></span> <span class="summary-text">{{ 'MEET.SUMMARY_BULLET2' | translate }}</span></li>
+            <li><span class="dot-green"></span> <span class="summary-text">{{ 'MEET.SUMMARY_BULLET3' | translate }}</span></li>
+          </ul>
+        </div>
+
       </div>
     </div>
 
-    <!-- Detalhes da reunião selecionada -->
-    <div class="detail-panel" *ngIf="selectedMeeting() as meeting">
-      <div class="detail-header">
-        <button class="btn-back" (click)="clearSelection()">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-          {{ 'MEET.BACK' | translate }}
-        </button>
-        <h3>{{ meeting.subject }}</h3>
-        <span class="meeting-meta">{{ formatDate(meeting.startDateTime) }} — {{ formatDate(meeting.endDateTime) }}</span>
+    <!-- RIGHT COLUMN -->
+    <div class="meet-right">
+
+      <!-- Auto Diagnosis Card -->
+      <div class="meet-card diagnosis-card">
+        <h3>{{ 'MEET.DIAGNOSIS_TITLE' | translate }}</h3>
+        <p class="card-sub">{{ 'MEET.DIAGNOSIS_SUB' | translate }}</p>
+        <p class="diagnosis-desc">{{ 'MEET.DIAGNOSIS_DESC' | translate }}</p>
       </div>
 
-      <div class="transcripts-section">
-        <h4>{{ 'MEET.TRANSCRIPTS' | translate }}</h4>
-        <div *ngIf="loadingTranscripts()" class="loading">{{ 'MEET.LOADING' | translate }}</div>
-        <div *ngIf="errorTranscripts()" class="error">{{ errorTranscripts() }}</div>
+      <!-- BANT + SPIN Row -->
+      <div class="frameworks-row">
 
-        <div *ngIf="!loadingTranscripts() && transcripts().length === 0" class="empty">
-          {{ 'MEET.NO_TRANSCRIPTS' | translate }}
+        <!-- BANT -->
+        <div class="meet-card framework-card">
+          <h3>BANT</h3>
+          <table class="framework-table">
+            <tr>
+              <td class="fw-label">Budget</td>
+              <td class="fw-value">{{ 'MEET.BANT_BUDGET_VAL' | translate }}</td>
+            </tr>
+            <tr>
+              <td class="fw-label">Authority</td>
+              <td class="fw-value">{{ 'MEET.BANT_AUTH_VAL' | translate }}</td>
+            </tr>
+            <tr>
+              <td class="fw-label">Need</td>
+              <td class="fw-value">{{ 'MEET.BANT_NEED_VAL' | translate }}</td>
+            </tr>
+            <tr>
+              <td class="fw-label">Timing</td>
+              <td class="fw-value">{{ 'MEET.BANT_TIME_VAL' | translate }}</td>
+            </tr>
+          </table>
         </div>
 
-        <div class="transcripts-list">
-          <div
-            *ngFor="let t of transcripts()"
-            class="transcript-item"
-            [class.active]="selectedTranscript()?.id === t.id"
-            (click)="selectTranscript(t)"
-          >
-            <div class="transcript-date">{{ formatDate(t.createdDateTime) }}</div>
+        <!-- SPIN -->
+        <div class="meet-card framework-card">
+          <h3>SPIN</h3>
+          <div class="spin-list">
+            <div class="spin-item">
+              <span class="spin-badge spin-s">S</span>
+              <span>{{ 'MEET.SPIN_S_VAL' | translate }}</span>
+            </div>
+            <div class="spin-item">
+              <span class="spin-badge spin-p">P</span>
+              <span>{{ 'MEET.SPIN_P_VAL' | translate }}</span>
+            </div>
+            <div class="spin-item">
+              <span class="spin-badge spin-i">I</span>
+              <span>{{ 'MEET.SPIN_I_VAL' | translate }}</span>
+            </div>
+            <div class="spin-item">
+              <span class="spin-badge spin-n">N</span>
+              <span>{{ 'MEET.SPIN_N_VAL' | translate }}</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Suggested Actions Card -->
+      <div class="meet-card actions-card">
+        <div class="actions-content">
+          <div class="actions-left-group">
+            <h3>{{ 'MEET.ACTIONS_TITLE' | translate }}</h3>
+            <ul class="actions-list">
+              <li><span class="dot-green"></span> <span>{{ 'MEET.ACTION_1' | translate }}</span></li>
+              <li><span class="dot-green"></span> <span>{{ 'MEET.ACTION_2' | translate }}</span></li>
+            </ul>
+          </div>
+          <div class="actions-buttons">
+            <button class="btn-analyze">{{ 'MEET.BTN_ANALYZE' | translate }}</button>
+            <button class="btn-crm">{{ 'MEET.BTN_SEND_CRM' | translate }}</button>
           </div>
         </div>
       </div>
 
-      <div class="content-section" *ngIf="selectedTranscript()">
-        <h4>{{ 'MEET.CONTENT' | translate }}</h4>
-        <div *ngIf="loadingContent()" class="loading">{{ 'MEET.LOADING' | translate }}</div>
-        <div *ngIf="errorContent()" class="error">{{ errorContent() }}</div>
-        <div *ngIf="transcriptContent()?.plainText as text" class="content-text">
-          <pre>{{ text }}</pre>
-        </div>
-      </div>
     </div>
+
   </div>
 </div>

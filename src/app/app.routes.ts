@@ -7,6 +7,7 @@ import { PlaceholderComponent } from './domains/dashboard/placeholder/placeholde
 import { ProposalComponent } from './domains/dashboard/proposal/proposal.component';
 import { HealthComponent } from './domains/dashboard/health/health.component';
 import { MeetComponent } from './domains/dashboard/meet/meet.component';
+import { CrmComponent } from './domains/dashboard/crm/crm.component';
 import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
@@ -19,7 +20,7 @@ export const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'cockpit', component: CockpitComponent },
       { path: 'meet', component: MeetComponent },
-      { path: 'crm', component: PlaceholderComponent },
+      { path: 'crm', component: CrmComponent },
       { path: 'health', component: HealthComponent },
       { path: 'desk', component: PlaceholderComponent },
       { path: 'roi', component: PlaceholderComponent },
