@@ -1,0 +1,121 @@
+<div class="desk-container">
+
+  <!-- Header -->
+  <div class="desk-header">
+    <div class="header-main">
+      <div>
+        <h1 class="desk-title">{{ 'DESK.TITLE' | translate }}</h1>
+        <p class="desk-subtitle">{{ 'DESK.SUBTITLE' | translate }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Grid (3 columns) -->
+  <div class="desk-grid">
+
+    <!-- Card 1: Origem do incidente -->
+    <div class="desk-card">
+      <div class="card-header">
+        <h3>{{ 'DESK.CARD1_TITLE' | translate }}</h3>
+        <p class="card-sub">{{ 'DESK.CARD1_SUB' | translate }}</p>
+      </div>
+
+      <table class="desk-table">
+        <tr>
+          <td class="desk-label">{{ 'DESK.LBL_CONTA' | translate }}</td>
+          <td class="desk-value">{{ 'DESK.VAL_CONTA' | translate }}</td>
+        </tr>
+        <tr>
+          <td class="desk-label">{{ 'DESK.LBL_PRODUTO' | translate }}</td>
+          <td class="desk-value">{{ 'DESK.VAL_PRODUTO' | translate }}</td>
+        </tr>
+        <tr>
+          <td class="desk-label">{{ 'DESK.LBL_TIPO' | translate }}</td>
+          <td class="desk-value">{{ 'DESK.VAL_TIPO' | translate }}</td>
+        </tr>
+        <tr>
+          <td class="desk-label">{{ 'DESK.LBL_ORIGEM' | translate }}</td>
+          <td class="desk-value">{{ 'DESK.VAL_ORIGEM' | translate }}</td>
+        </tr>
+      </table>
+
+      <div class="inner-box border-box">
+        <p>{{ 'DESK.CARD1_BOX' | translate }}</p>
+      </div>
+
+      <div class="card-action-bottom">
+        <button class="btn-blue-solid">{{ 'DESK.BTN_CLASSIFICAR' | translate }}</button>
+      </div>
+    </div>
+
+    <!-- Card 2: Classificação automática -->
+    <div class="desk-card">
+      <div class="card-header">
+        <h3>{{ 'DESK.CARD2_TITLE' | translate }}</h3>
+        <p class="card-sub">{{ 'DESK.CARD2_SUB' | translate }}</p>
+      </div>
+
+      <table class="desk-table badge-table">
+        <tr>
+          <td class="desk-label">{{ 'DESK.LBL_URGENCIA' | translate }}</td>
+          <td class="desk-value"><span class="badge badge-red-soft">{{ 'DESK.VAL_URGENCIA' | translate }}</span></td>
+        </tr>
+        <tr>
+          <td class="desk-label">{{ 'DESK.LBL_CATEGORIA' | translate }}</td>
+          <td class="desk-value"><span class="badge badge-blue-soft">{{ 'DESK.VAL_CATEGORIA' | translate }}</span></td>
+        </tr>
+        <tr>
+          <td class="desk-label">{{ 'DESK.LBL_SUBCATEGORIA' | translate }}</td>
+          <td class="desk-value"><span class="badge badge-blue-soft">{{ 'DESK.VAL_SUBCATEGORIA' | translate }}</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="desk-label">{{ 'DESK.LBL_FILA' | translate }}</td>
+          <td class="desk-value"><span class="badge badge-green-soft">{{ 'DESK.VAL_FILA' | translate }}</span></td>
+        </tr>
+        <tr>
+          <td class="desk-label">{{ 'DESK.LBL_SLA' | translate }}</td>
+          <td class="desk-value"><span class="badge badge-orange-soft">{{ 'DESK.VAL_SLA' | translate }}</span></td>
+        </tr>
+      </table>
+
+      <div class="inner-box green-box mt-auto">
+        <div class="inner-box-title">{{ 'DESK.LBL_BENEFICIO' | translate }}</div>
+        <p class="font-bold">{{ 'DESK.VAL_BENEFICIO' | translate }}</p>
+      </div>
+    </div>
+
+    <!-- Card 3: Chamado pronto -->
+    <div class="desk-card">
+      <div class="card-header">
+        <h3>{{ 'DESK.CARD3_TITLE' | translate }}</h3>
+        <p class="card-sub">{{ 'DESK.CARD3_SUB' | translate }}</p>
+      </div>
+
+      <div class="ticket-header-row">
+        <span class="desk-label">{{ 'DESK.LBL_TITULO' | translate }}</span>
+        <span class="desk-value font-bold">{{ 'DESK.VAL_TITULO' | translate }}</span>
+      </div>
+
+      <div class="inner-box border-box">
+        <p>{{ 'DESK.CARD3_BOX' | translate }}</p>
+      </div>
+
+      <div class="badge-row">
+        <span class="badge badge-red-soft">{{ 'DESK.BADGE_PRIORITY' | translate }}</span>
+        <span class="badge badge-orange-soft">{{ 'DESK.BADGE_SLA' | translate }}</span>
+        <span class="badge badge-green-soft">{{ 'DESK.BADGE_PROJECT' | translate }}</span>
+      </div>
+
+      <div class="desk-summary-text mt-auto">
+        <p><strong>{{ 'DESK.CARD3_TEXT' | translate }}</strong></p>
+      </div>
+
+      <div class="action-buttons-row">
+        <button class="btn-green-solid">{{ 'DESK.BTN_OPEN' | translate }}</button>
+        <button class="btn-blue-solid">{{ 'DESK.BTN_NOTIFY' | translate }}</button>
+      </div>
+    </div>
+
+  </div>
+</div>
