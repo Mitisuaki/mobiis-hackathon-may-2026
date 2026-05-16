@@ -322,5 +322,56 @@ export const es = {
         DECISION: 'Pasar del soporte reactivo a la prevención.'
       }
     }
+  },
+  SIDEBAR_ADDITIONS: {
+    INDICADORES: 'Indicadores'
+  },
+  MEET: {
+    TITLE: 'Reuniones',
+    SEARCH_PLACEHOLDER: 'Buscar por asunto...',
+    MEETINGS: 'Reuniones',
+    NO_MEETINGS: 'No se encontraron reuniones.',
+    TRANSCRIPTS: 'Transcripciones',
+    NO_TRANSCRIPTS: 'No hay transcripciones disponibles.',
+    SELECT_MEETING: 'Seleccione una reunión',
+    CONTENT: 'Contenido',
+    BACK: 'Volver',
+    LOADING: 'Cargando...'
+  },
+  INDICADORES: {
+    TITLE: 'Panel de Gestión de Tickets',
+    SUBTITLE: 'Análisis de Riesgo de Churn e Indicadores de Desempeño',
+    SUMMARY_TOTAL: 'Total de Tickets',
+    SUMMARY_SOLUCIONADOS: 'Resueltos',
+    SUMMARY_PENDENTES: 'Pendientes',
+    SUMMARY_TAXA: 'Tasa de Resolución',
+    CHURN_TITLE: 'Análisis de Riesgo de Churn por Cliente',
+    COL_CLIENTE: 'Cliente',
+    COL_TOTAL: 'Total',
+    COL_PENDENTES: 'Pendientes',
+    COL_PROBLEMAS: 'Problemas',
+    COL_URGENTES: 'Urgentes',
+    COL_SCORE: 'Score',
+    COL_CLASSIFICACAO: 'Clasificación',
+    STATUS_TITLE: 'Tickets por Estado',
+    PROPRIETARIO_TITLE: 'Tickets por Propietario',
+    CATEGORIA_TITLE: 'Tickets por Categoría',
+    NIVEL_TITLE: 'Tickets por Nivel de Servicio',
+    RESUMO_RISCO_TITLE: 'Resumen de Riesgo de Churn',
+    LOADING: 'Cargando...',
+    ERROR: 'Error al cargar datos'
+  },
+  PROPOSAL_ADDITIONS: {
+    SEARCH_PLACEHOLDER: 'Buscar reunión por asunto...',
+    LOADING_MEETINGS: 'Cargando reuniones...',
+    LOADING_TRANSCRIPT: 'Cargando transcripción...',
+    NO_MEETINGS: 'No se encontraron reuniones.',
+    GENERATE_PROPOSAL: 'Generar Propuesta IA',
+    GENERATING: 'Generando propuesta...',
+    SUMMARY: 'Resumen de la Reunión',
+    SENTIMENT: 'Sentimiento del Cliente',
+    PROBLEMS_IDENTIFIED: 'Problemas Identificados',
+    ACTIONS_RECOMMENDED: 'Acciones Recomendadas',
+    FALLBACK_WARNING: 'No se pudo generar la propuesta en tiempo real. Mostrando propuesta de referencia.'
   }
 };

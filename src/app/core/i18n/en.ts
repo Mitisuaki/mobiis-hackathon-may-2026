@@ -322,5 +322,56 @@ export const en = {
         DECISION: 'Move from reactive support to prevention.'
       }
     }
+  },
+  SIDEBAR_ADDITIONS: {
+    INDICADORES: 'Indicators'
+  },
+  MEET: {
+    TITLE: 'Meetings',
+    SEARCH_PLACEHOLDER: 'Search by subject...',
+    MEETINGS: 'Meetings',
+    NO_MEETINGS: 'No meetings found.',
+    TRANSCRIPTS: 'Transcripts',
+    NO_TRANSCRIPTS: 'No transcripts available.',
+    SELECT_MEETING: 'Select a meeting',
+    CONTENT: 'Content',
+    BACK: 'Back',
+    LOADING: 'Loading...'
+  },
+  INDICADORES: {
+    TITLE: 'Ticket Management Panel',
+    SUBTITLE: 'Churn Risk Analysis and Performance Indicators',
+    SUMMARY_TOTAL: 'Total Tickets',
+    SUMMARY_SOLUCIONADOS: 'Resolved',
+    SUMMARY_PENDENTES: 'Pending',
+    SUMMARY_TAXA: 'Resolution Rate',
+    CHURN_TITLE: 'Churn Risk Analysis by Client',
+    COL_CLIENTE: 'Client',
+    COL_TOTAL: 'Total',
+    COL_PENDENTES: 'Pending',
+    COL_PROBLEMAS: 'Problems',
+    COL_URGENTES: 'Urgent',
+    COL_SCORE: 'Score',
+    COL_CLASSIFICACAO: 'Classification',
+    STATUS_TITLE: 'Tickets by Status',
+    PROPRIETARIO_TITLE: 'Tickets by Owner',
+    CATEGORIA_TITLE: 'Tickets by Category',
+    NIVEL_TITLE: 'Tickets by Service Level',
+    RESUMO_RISCO_TITLE: 'Churn Risk Summary',
+    LOADING: 'Loading...',
+    ERROR: 'Error loading data'
+  },
+  PROPOSAL_ADDITIONS: {
+    SEARCH_PLACEHOLDER: 'Search meeting by subject...',
+    LOADING_MEETINGS: 'Loading meetings...',
+    LOADING_TRANSCRIPT: 'Loading transcript...',
+    NO_MEETINGS: 'No meetings found.',
+    GENERATE_PROPOSAL: 'Generate AI Proposal',
+    GENERATING: 'Generating proposal...',
+    SUMMARY: 'Meeting Summary',
+    SENTIMENT: 'Client Sentiment',
+    PROBLEMS_IDENTIFIED: 'Problems Identified',
+    ACTIONS_RECOMMENDED: 'Recommended Actions',
+    FALLBACK_WARNING: 'Unable to generate the proposal in real-time. Displaying reference proposal.'
   }
 };

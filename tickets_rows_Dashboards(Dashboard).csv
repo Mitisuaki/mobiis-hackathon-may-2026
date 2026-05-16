@@ -1,0 +1,68 @@
+,,,,,,,,,,,,,,,
+PAINEL DE GESTÃO DE TICKETS,,,,,,,,,,,,,,,
+Análise de Risco de Churn e Indicadores de Desempenho,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+?? TOTAL DE TICKETS,,? SOLUCIONADOS,,? PENDENTES,,?? TAXA DE RESOLUÇÃO,,,,,,,,,
+"1,987",,"1,148",,761,,57.8%,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+ANÁLISE DE RISCO DE CHURN POR CLIENTE,,,,,,,,,TICKETS POR STATUS,,,,TICKETS POR PROPRIETÁRIO,,
+?? Risco Altíssimo: Score > 80,,?? Risco Alto: Score 40-80,,,?? Risco Moderado: Score < 40,,,,Status,Quantidade,%,,Equipe Proprietária,Quantidade,%
+,,,,,,,,,Fechado,"1,143",57.5%,,Customer Success - Atendimento,"1,394",70.2%
+Cliente,Total,Pendentes,Problemas,Urgentes,% Pend.,Score,Classificação,,Novo,711,35.8%,,Customer Success - Adoption/Ongoing,137,6.9%
+Riachuelo,359,84,50,8,23.4%,114.4,?? ALTÍSSIMO,,Concluído,0,0.0%,,Produto - Análise,0,0.0%
+Triunfante,14,12,1,13,85.7%,113.2,?? ALTÍSSIMO,,Em Análise,0,0.0%,,Customer Success - Onboarding,63,3.2%
+KAPAZI,8,7,0,8,87.5%,103.5,?? ALTÍSSIMO,,Em Atendimento,13,0.7%,,Professional Services,12,0.6%
+Aurea,31,6,17,22,19.4%,88.9,?? ALTÍSSIMO,,Em Desenvolvimento,9,0.5%,,Administrador,8,0.4%
+Fretefy,388,105,13,19,27.1%,84.6,?? ALTÍSSIMO,,Backlog,14,0.7%,,Produto - Desenvolvimento,3,0.2%
+CBA,14,8,5,8,57.1%,80.6,?? ALTÍSSIMO,,Cancelado,10,0.5%,,Comercial,4,0.2%
+SUNO,3,2,1,3,66.7%,74.2,?? ALTO,,Resolvido,5,0.3%,,(Sem Proprietário),230,11.6%
+AAK,88,21,30,2,23.9%,72.9,?? ALTO,,Aguardando,12,0.6%,,,,
+Araguaia,26,15,9,0,57.7%,71.2,?? ALTO,,Orçamento,0,0.0%,,,,
+Kiformaggio,3,2,0,2,66.7%,70.7,?? ALTO,,,,,,,,
+NULOG,15,8,3,3,53.3%,63.8,?? ALTO,,TICKETS POR CATEGORIA,,,,RESUMO DE RISCO DE CHURN,,
+Elite Trade,12,4,5,10,33.3%,60.8,?? ALTO,,Categoria,Quantidade,%,,Classificação,Clientes,%
+Fujifilm,5,2,4,5,40.0%,56.0,?? ALTO,,Atendimento,"1,154",58.1%,,?? Risco Altíssimo,6,21.4%
+Teadit,5,2,3,5,40.0%,54.5,?? ALTO,,Problema,252,12.7%,,?? Risco Alto,15,53.6%
+RIVELLI,19,3,10,11,15.8%,52.8,?? ALTO,,Solicitação,0,0.0%,,?? Risco Moderado,7,25.0%
+Neolider,4,2,0,1,50.0%,52.0,?? ALTO,,Manutenção de Integrações,0,0.0%,,,,
+Valgroup,58,16,5,7,27.6%,49.1,?? ALTO,,Novas Integrações,0,0.0%,,FÓRMULA DE CÁLCULO DO SCORE DE RISCO,,
+PORMADE,5,2,2,2,40.0%,47.0,?? ALTO,,Serviço,0,0.0%,,"Score = (% Pendentes × 100) + (Problemas × 1,5) + (Urgentes × 2)",,
+Packem,8,3,2,1,37.5%,42.5,?? ALTO,,(Sem Categoria),323,16.3%,,,,
+Semina,8,2,2,7,25.0%,42.0,?? ALTO,,,,,,Componentes do Cálculo:,,
+Neosense,5,2,0,0,40.0%,40.0,?? ALTO,,TICKETS POR NÍVEL DE SERVIÇO,,,,• % Pendentes: Percentual de tickets não resolvidos (peso 100),,
+Valeouro,13,5,0,0,38.5%,38.5,?? MODERADO,,Nível,Quantidade,%,,"• Problemas: Quantidade de tickets categorizados como ""Problema"" (peso 1,5)",,
+Soin,7,2,5,0,28.6%,36.1,?? MODERADO,,1º Nível,"1,751",88.1%,,"• Urgentes: Tickets com urgência ""Alta"" ou ""3"" (peso 2)",,
+Salus,4,1,2,3,25.0%,34.0,?? MODERADO,,2º Nível,"1,671",84.1%,,,,
+Fockink,5,1,1,1,20.0%,23.5,?? MODERADO,,3º Nível,70,3.5%,,Classificação:,,
+DHL,21,2,3,3,9.5%,20.0,?? MODERADO,,,,,,?? ALTÍSSIMO: Score > 80  |  ?? ALTO: Score 40-80  |  ?? MODERADO: Score < 40,,
+ISOFILME,5,0,0,4,0.0%,8.0,?? MODERADO,,,,,,,,
+Placibras,3,0,0,2,0.0%,4.0,?? MODERADO,,,,,,,,
+Placibras,3,0,0,4,0.0%,8.0,?? MODERADO,,,,,,,,
+VISUALIZAÇÕES GRÁFICAS,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+NOTAS E CRITÉRIOS DE ANÁLISE,,,,,,,,,,,,,,,
+"• Tickets solucionados: status ""Fechado"", ""Concluído"" ou ""Resolvido"".",,,,,,,,,,,,,,,
+"• Tickets pendentes: status ""Novo"", ""Em Desenvolvimento"", ""Em Análise"", ""Orçamento"", ""Em Atendimento"", ""Backlog"", ""Aguardando"" ou ""Aguardando Estimativa"".",,,,,,,,,,,,,,,
+"• Score de risco: calculado com base no percentual de pendentes, quantidade de problemas e tickets urgentes.",,,,,,,,,,,,,,,
+• Risco Altíssimo (??): score > 80  |  Risco Alto (??): score entre 40 e 80  |  Risco Moderado (??): score < 40.,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+"Dashboard atualizado automaticamente com base nos dados da aba ""in""  |  Filtros disponíveis na tabela ""TabelaTickets""",,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,

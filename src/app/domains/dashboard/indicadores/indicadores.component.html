@@ -1,0 +1,141 @@
+<div class="indicadores-wrapper">
+  <div class="indicadores-header">
+    <h2>{{ 'INDICADORES.TITLE' | translate }}</h2>
+    <p>{{ 'INDICADORES.SUBTITLE' | translate }}</p>
+  </div>
+
+  <div *ngIf="loading()" class="loading">{{ 'INDICADORES.LOADING' | translate }}</div>
+  <div *ngIf="error()" class="error">{{ error() }}</div>
+
+  <ng-container *ngIf="!loading() && !error()">
+    <!-- Summary Cards -->
+    <div class="summary-grid" *ngIf="summary() as s">
+      <div class="summary-card">
+        <div class="summary-number">{{ s.totalTickets | number }}</div>
+        <div class="summary-label">{{ 'INDICADORES.SUMMARY_TOTAL' | translate }}</div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-number">{{ s.solucionados | number }}</div>
+        <div class="summary-label">{{ 'INDICADORES.SUMMARY_SOLUCIONADOS' | translate }}</div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-number">{{ s.pendentes | number }}</div>
+        <div class="summary-label">{{ 'INDICADORES.SUMMARY_PENDENTES' | translate }}</div>
+      </div>
+      <div class="summary-card accent">
+        <div class="summary-number">{{ s.taxaResolucao }}<span class="summary-unit">%</span></div>
+        <div class="summary-label">{{ 'INDICADORES.SUMMARY_TAXA' | translate }}</div>
+      </div>
+    </div>
+
+    <!-- Churn Risk Table -->
+    <div class="section-card">
+      <h3>{{ 'INDICADORES.CHURN_TITLE' | translate }}</h3>
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>{{ 'INDICADORES.COL_CLIENTE' | translate }}</th>
+              <th>{{ 'INDICADORES.COL_TOTAL' | translate }}</th>
+              <th>{{ 'INDICADORES.COL_PENDENTES' | translate }}</th>
+              <th>{{ 'INDICADORES.COL_PROBLEMAS' | translate }}</th>
+              <th>{{ 'INDICADORES.COL_URGENTES' | translate }}</th>
+              <th>% {{ 'INDICADORES.COL_PENDENTES' | translate }}</th>
+              <th>{{ 'INDICADORES.COL_SCORE' | translate }}</th>
+              <th>{{ 'INDICADORES.COL_CLASSIFICACAO' | translate }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let c of clientesRisco()" [class]="classificacaoClass(c.classificacao)">
+              <td class="cliente-name">{{ c.cliente }}</td>
+              <td>{{ c.total }}</td>
+              <td>{{ c.pendentes }}</td>
+              <td>{{ c.problemas }}</td>
+              <td>{{ c.urgentes }}</td>
+              <td>{{ c.percentualPendentes }}%</td>
+              <td>{{ c.score }}</td>
+              <td>
+                <span class="badge" [class]="classificacaoClass(c.classificacao)">
+                  {{ c.classificacao }}
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Distribution Grids -->
+    <div class="distribution-row">
+      <!-- Status -->
+      <div class="section-card">
+        <h3>{{ 'INDICADORES.STATUS_TITLE' | translate }}</h3>
+        <div class="bar-list">
+          <div class="bar-item" *ngFor="let s of ticketsStatus()">
+            <div class="bar-label">{{ s.status }}</div>
+            <div class="bar-track">
+              <div class="bar-fill" [style.width.%]="s.percentual"></div>
+            </div>
+            <div class="bar-value">{{ s.quantidade }} <span class="bar-percent">({{ s.percentual }}%)</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proprietário -->
+      <div class="section-card">
+        <h3>{{ 'INDICADORES.PROPRIETARIO_TITLE' | translate }}</h3>
+        <div class="bar-list">
+          <div class="bar-item" *ngFor="let p of ticketsProprietario()">
+            <div class="bar-label">{{ p.equipeProprietaria }}</div>
+            <div class="bar-track">
+              <div class="bar-fill" [style.width.%]="p.percentual"></div>
+            </div>
+            <div class="bar-value">{{ p.quantidade }} <span class="bar-percent">({{ p.percentual }}%)</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="distribution-row">
+      <!-- Categoria -->
+      <div class="section-card">
+        <h3>{{ 'INDICADORES.CATEGORIA_TITLE' | translate }}</h3>
+        <div class="bar-list">
+          <div class="bar-item" *ngFor="let c of ticketsCategoria()">
+            <div class="bar-label">{{ c.categoria }}</div>
+            <div class="bar-track">
+              <div class="bar-fill" [style.width.%]="c.percentual"></div>
+            </div>
+            <div class="bar-value">{{ c.quantidade }} <span class="bar-percent">({{ c.percentual }}%)</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nível de Serviço -->
+      <div class="section-card">
+        <h3>{{ 'INDICADORES.NIVEL_TITLE' | translate }}</h3>
+        <div class="bar-list">
+          <div class="bar-item" *ngFor="let n of ticketsNivel()">
+            <div class="bar-label">{{ n.nivel }}</div>
+            <div class="bar-track">
+              <div class="bar-fill" [style.width.%]="n.percentual"></div>
+            </div>
+            <div class="bar-value">{{ n.quantidade }} <span class="bar-percent">({{ n.percentual }}%)</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resumo Risco Churn -->
+    <div class="section-card">
+      <h3>{{ 'INDICADORES.RESUMO_RISCO_TITLE' | translate }}</h3>
+      <div class="resumo-grid">
+        <div class="resumo-card" *ngFor="let r of resumoRisco()">
+          <div class="resumo-number">{{ r.clientes }}</div>
+          <div class="resumo-label">{{ r.classificacao }}</div>
+          <div class="resumo-percent">{{ r.percentual }}%</div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

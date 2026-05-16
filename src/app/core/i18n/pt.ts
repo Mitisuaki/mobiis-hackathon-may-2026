@@ -322,5 +322,56 @@ export const pt = {
         DECISION: 'Sair do suporte reativo para prevenção.'
       }
     }
+  },
+  SIDEBAR_ADDITIONS: {
+    INDICADORES: 'Indicadores'
+  },
+  MEET: {
+    TITLE: 'Reuniões',
+    SEARCH_PLACEHOLDER: 'Buscar por assunto...',
+    MEETINGS: 'Reuniões',
+    NO_MEETINGS: 'Nenhuma reunião encontrada.',
+    TRANSCRIPTS: 'Transcrições',
+    NO_TRANSCRIPTS: 'Nenhuma transcrição disponível.',
+    SELECT_MEETING: 'Selecione uma reunião',
+    CONTENT: 'Conteúdo',
+    BACK: 'Voltar',
+    LOADING: 'Carregando...'
+  },
+  INDICADORES: {
+    TITLE: 'Painel de Gestão de Tickets',
+    SUBTITLE: 'Análise de Risco de Churn e Indicadores de Desempenho',
+    SUMMARY_TOTAL: 'Total de Tickets',
+    SUMMARY_SOLUCIONADOS: 'Solucionados',
+    SUMMARY_PENDENTES: 'Pendentes',
+    SUMMARY_TAXA: 'Taxa de Resolução',
+    CHURN_TITLE: 'Análise de Risco de Churn por Cliente',
+    COL_CLIENTE: 'Cliente',
+    COL_TOTAL: 'Total',
+    COL_PENDENTES: 'Pendentes',
+    COL_PROBLEMAS: 'Problemas',
+    COL_URGENTES: 'Urgentes',
+    COL_SCORE: 'Score',
+    COL_CLASSIFICACAO: 'Classificação',
+    STATUS_TITLE: 'Tickets por Status',
+    PROPRIETARIO_TITLE: 'Tickets por Proprietário',
+    CATEGORIA_TITLE: 'Tickets por Categoria',
+    NIVEL_TITLE: 'Tickets por Nível de Serviço',
+    RESUMO_RISCO_TITLE: 'Resumo de Risco de Churn',
+    LOADING: 'Carregando...',
+    ERROR: 'Erro ao carregar dados'
+  },
+  PROPOSAL_ADDITIONS: {
+    SEARCH_PLACEHOLDER: 'Buscar reunião por assunto...',
+    LOADING_MEETINGS: 'Carregando reuniões...',
+    LOADING_TRANSCRIPT: 'Carregando transcrição...',
+    NO_MEETINGS: 'Nenhuma reunião encontrada.',
+    GENERATE_PROPOSAL: 'Gerar Proposta IA',
+    GENERATING: 'Gerando proposta...',
+    SUMMARY: 'Resumo da Reunião',
+    SENTIMENT: 'Sentimento do Cliente',
+    PROBLEMS_IDENTIFIED: 'Problemas Identificados',
+    ACTIONS_RECOMMENDED: 'Ações Recomendadas',
+    FALLBACK_WARNING: 'Não foi possível gerar a proposta em tempo real. Exibindo proposta de referência.'
   }
 };
