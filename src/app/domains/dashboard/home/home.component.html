@@ -2,18 +2,17 @@
   <div class="hero-container">
 
     <div class="hero-content">
-      <div class="tagline">PLATAFORMA DE INTELIGÊNCIA</div>
+      <div class="tagline">{{ 'HOME.TAGLINE' | translate }}</div>
       <h1 class="title">
-        Potencialize suas <span class="text-blue">Vendas e</span><br />
-        <span class="text-green">Operações</span> com IA.
+        {{ 'HOME.TITLE_PART1' | translate }} <span class="text-blue">{{ 'HOME.TITLE_PART2' | translate }}</span><br />
+        <span class="text-green">{{ 'HOME.TITLE_PART3' | translate }}</span> {{ 'HOME.TITLE_PART4' | translate }}
       </h1>
       <p class="description">
-        O Mobiis Revenue Copilot transforma dados fragmentados do Microsoft Teams, Pipedrive e Desk Manager em insights
-        estratégicos acionáveis em tempo real.
+        {{ 'HOME.DESCRIPTION' | translate }}
       </p>
       <div class="cta-group">
-        <a routerLink="/dashboard/cockpit" class="btn-primary">Acessar Cockpit</a>
-        <a routerLink="/dashboard/meet" class="btn-secondary">Explorar Jornadas</a>
+        <a routerLink="/dashboard/cockpit" class="btn-primary">{{ 'HOME.BTN_COCKPIT' | translate }}</a>
+        <a routerLink="/dashboard/meet" class="btn-secondary">{{ 'HOME.BTN_JOURNEYS' | translate }}</a>
       </div>
     </div>
 
@@ -29,8 +28,8 @@
           </svg>
         </div>
         <div class="card-text">
-          <h3>Inteligência de Reuniões</h3>
-          <p>Análise automática do MS Teams.</p>
+          <h3>{{ 'HOME.CARD1_TITLE' | translate }}</h3>
+          <p>{{ 'HOME.CARD1_DESC' | translate }}</p>
         </div>
       </div>
 
@@ -42,8 +41,8 @@
           </svg>
         </div>
         <div class="card-text">
-          <h3>Saúde do CRM</h3>
-          <p>Acompanhamento em tempo real via Pipedrive.</p>
+          <h3>{{ 'HOME.CARD2_TITLE' | translate }}</h3>
+          <p>{{ 'HOME.CARD2_DESC' | translate }}</p>
         </div>
       </div>
 
@@ -57,8 +56,8 @@
           </svg>
         </div>
         <div class="card-text">
-          <h3>Operações de Desk</h3>
-          <p>Métricas unificadas e avançadas do Desk Manager.</p>
+          <h3>{{ 'HOME.CARD3_TITLE' | translate }}</h3>
+          <p>{{ 'HOME.CARD3_DESC' | translate }}</p>
         </div>
       </div>
     </div>
