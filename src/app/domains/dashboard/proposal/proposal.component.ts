@@ -30,7 +30,7 @@ interface Negotiation {
   styleUrls: ['./proposal.component.css']
 })
 export class ProposalComponent {
-  constructor(private proposalService: ProposalService) {}
+  constructor(private proposalService: ProposalService) { }
 
   negotiations: Negotiation[] = [
     {
@@ -92,7 +92,12 @@ export class ProposalComponent {
   }
 
   downloadProposal() {
-    const downloadName = `Proposta_${this.selected.client.replace(/\s/g, '_')}.docx`;
-    this.proposalService.downloadProposal(this.selected.filePath, downloadName);
+    // const downloadName = `Proposta_${this.selected.client.replace(/\s/g, '_')}.docx`;
+    // this.proposalService.downloadProposal(this.selected.filePath, downloadName);
+    const link = document.createElement('a');
+    link.href = '/proposta_gerada.pdf';
+    link.download = 'proposta_gerada.pdf';
+    link.click();
+    link.remove();
   }
 }
