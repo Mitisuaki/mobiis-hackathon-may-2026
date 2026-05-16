@@ -102,6 +102,18 @@ export const en = {
     BENEFIT3_TITLE: 'Conversion',
     BENEFIT3_DESC: 'Personalized proposals increase the closing rate and reduce sales cycles.'
   },
+  MEET: {
+    TITLE: 'Meetings',
+    SEARCH_PLACEHOLDER: 'Search by subject...',
+    MEETINGS: 'Meetings',
+    NO_MEETINGS: 'No meetings found.',
+    TRANSCRIPTS: 'Transcripts',
+    NO_TRANSCRIPTS: 'No transcripts available.',
+    SELECT_MEETING: 'Select a meeting',
+    CONTENT: 'Content',
+    BACK: 'Back',
+    LOADING: 'Loading...'
+  },
   HEALTH: {
     BREADCRUMB: 'MOBIIS • CUSTOMER SUCCESS INTELLIGENCE',
     BASE_BADGE: 'FIXED BASE: 619 TICKETS',
